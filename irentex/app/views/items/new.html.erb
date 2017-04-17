@@ -1,0 +1,35 @@
+<title> Add New Item</title>
+
+
+<h1>Add New Item</h1>
+ 
+<%= form_for :item, url: user_rentp_items_path do |u| %>
+	<p>
+	<%=	u.label :"Item Name:" %> <br> 
+	<%=	u.text_field :item_name  %> 
+</p>
+
+<p>
+	<%=	u.label :"Item Description:"  %> <br> 
+	<%=	u.text_field :item_desc  %> 
+</p>
+
+<p>
+  <%= u.fields_for :item_attachments do |p| %>
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "item_attachments[image][]" %>
+     </div>
+
+   <% end %>
+</p>
+
+<p>
+	<%=	u.label :"Item Price:"  %> 	
+	<%=	u.text_field :item_price  %> 
+</p>
+
+<p>
+    <%=u.submit %>
+<% end %>
+<%= link_to 'Back', user_rentp_path(:id => @rentp.id) %>

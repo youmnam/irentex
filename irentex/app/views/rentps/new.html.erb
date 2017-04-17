@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+<%= form_for([@user, @user.rentps.build]) do |f| %>
+  <p>
+
+    <%= f.label :"Rentpoint Address:" %>
+    <%= f.text_field :rp_address ,  class: 'form-control' %> <br>
+    <%= f.label :"Governorates:"  %> 
+    <%= f.select(:rp_gover) do %>
+                 <%[['Alexandria','Alexandria'], 
+                    ['Aswan', 'Aswan'], 
+                    ['Asyut', 'Asyut'], 
+                  ['Beheira', 'Beheira'],
+                  ['Beni Suef', 'Beni Suef'], 
+                  ['Cairo', 'Cairo'], 
+                  ['Dakahlia', 'Dakahlia'], 
+                  ['Damietta', 'Damietta'], 
+                  ['Faiyum', 'Faiyum'], 
+                  ['Gharbia', 'Gharbia'],  
+                  ['Giza', 'Giza'], 
+                  ['Ismailia', 'Ismailia'], 
+                  ['Kafr El Sheikh', 'Kafr El Sheikh'], 
+                  ['Luxor', 'Luxor'], 
+                  ['Matruh', 'Matruh'], 
+                  ['Minya', 'Minya'], 
+                  ['Monufia', 'Monufia'], 
+                  ['North Sinai', 'North Sinai'],
+                  ['New Valley', 'New Valley'],
+                  ['Port Said', 'Port Said'],
+                  ['Qalyubia', 'Qalyubia'],
+                  ['Red Sea', 'Red Sea'],
+                  ['Sharqia', 'Sharqia'],
+                  ['Sohag', 'Sohag'],
+                  ['South Sinai', 'South Sinai'],
+                  ['Suez', 'Suez'] ].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %> 
+  <% end %>
+<% end %>
+  </p>
+
+  <br>
+  <br>
+    <%= f.submit "Add Rentpoint", class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+</div>
+</div>
