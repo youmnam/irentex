@@ -5,6 +5,10 @@
 
 	<%=	u.label :"first name" %>
 	<%=	u.text_field :usr_fname,  class: 'form-control' %> <br> 
+	
+	<%=	u.label :"date of birth:"  %> 
+	<%= date_field(:user, :usr_dob) %><br> <br> 
+	
 
 	<%=	u.label :"last name"  %> 
 	<%=	u.text_field :usr_lname,  class: 'form-control' %> <br> 
@@ -26,36 +30,43 @@
 	
 	<%=	u.label :"Address:"  %> <br> 
 	<%= u.text_field :usr_address, class: 'form-control' %> <br> 
-
-<%=	u.label :"Governorates:"  %>  
-<%= u.select(:usr_gover) do %>
-						 <%[['Alexandria','Alexandria'], 
-	    					['Aswan', 'Aswan'], 
-	    					['Asyut', 'Asyut'], 
-							['Beheira', 'Beheira'],
-							['Beni Suef', 'Beni Suef'], 
-							['Cairo', 'Cairo'], 
-							['Dakahlia', 'Dakahlia'], 
-							['Damietta', 'Damietta'], 
-							['Faiyum', 'Faiyum'], 
-							['Gharbia', 'Gharbia'],  
-							['Giza', 'Giza'], 
-							['Ismailia', 'Ismailia'], 
-							['Kafr El Sheikh', 'Kafr El Sheikh'], 
-							['Luxor', 'Luxor'], 
-							['Matruh', 'Matruh'], 
-							['Minya', 'Minya'], 
-							['Monufia', 'Monufia'], 
-							['North Sinai', 'North Sinai'],
-							['New Valley', 'New Valley'],
-							['Port Said', 'Port Said'],
-							['Qalyubia', 'Qalyubia'],
-							['Red Sea', 'Red Sea'],
-							['Sharqia', 'Sharqia'],
-							['Sohag', 'Sohag'],
-							['South Sinai', 'South Sinai'],
-							['Suez', 'Suez'] ].each do |c| -%>
-<%= content_tag(:option, c.first, value: c.last) %>	
+	
+	<%=	u.label :"Category:"  %>  
+	<%= 	u.select(:usr_cat) do %>
+	<% 			@categories.each do |c| -%>
+	<%= 		content_tag(:option, c.CategoryName , value: c.id) %>	
+	<% end %>
+    <% end %>
+    <br> 
+	<%=	u.label :"Governorates:"  %>  
+	<%= u.select(:usr_gover) do %>
+							 <%[['Alexandria','Alexandria'], 
+		    					['Aswan', 'Aswan'], 
+		    					['Asyut', 'Asyut'], 
+								['Beheira', 'Beheira'],
+								['Beni Suef', 'Beni Suef'], 
+								['Cairo', 'Cairo'], 
+								['Dakahlia', 'Dakahlia'], 
+								['Damietta', 'Damietta'], 
+								['Faiyum', 'Faiyum'], 
+								['Gharbia', 'Gharbia'],  
+								['Giza', 'Giza'], 
+								['Ismailia', 'Ismailia'], 
+								['Kafr El Sheikh', 'Kafr El Sheikh'], 
+								['Luxor', 'Luxor'], 
+								['Matruh', 'Matruh'], 
+								['Minya', 'Minya'], 
+								['Monufia', 'Monufia'], 
+								['North Sinai', 'North Sinai'],
+								['New Valley', 'New Valley'],
+								['Port Said', 'Port Said'],
+								['Qalyubia', 'Qalyubia'],
+								['Red Sea', 'Red Sea'],
+								['Sharqia', 'Sharqia'],
+								['Sohag', 'Sohag'],
+								['South Sinai', 'South Sinai'],
+								['Suez', 'Suez'] ].each do |c| -%>
+	<%= content_tag(:option, c.first, value: c.last) %>	
 
   <% end %>
 <% end %>
