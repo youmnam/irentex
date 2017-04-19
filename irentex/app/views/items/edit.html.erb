@@ -4,7 +4,7 @@
 <h1>Edit Item</h1>
  
 
-<%= form_for :item, url: user_rentp_item_path(:id => params[:id], :rentp_id => params[:rentp_id], :user_id => params[:user_id]), method: :patch  do |u| %>
+<%= form_for :item, url: user_item_path, method: :patch  do |u| %>
 	<p>
 	<%=	u.label :"Item Name:" %> <br> 
 	<%=	u.text_field :item_name  %> 
@@ -27,4 +27,4 @@
 <p>
     <%=u.submit %>
 <% end %>
-<%= link_to 'Back', user_rentp_path(:id => params[:rentp_id]) %>
+<%= link_to 'Back', user_path(:id => params[:user_id]) %>

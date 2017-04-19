@@ -59,24 +59,14 @@ ActiveRecord::Schema.define(version: 20170408071735) do
     t.string   "item_name"
     t.string   "item_desc"
     t.decimal  "item_price"
-    t.integer  "rentp_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",     null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "items", ["rentp_id"], name: "index_items_on_rentp_id"
-
-  create_table "rentps", force: :cascade do |t|
-    t.string   "rp_address"
-    t.string   "rp_city"
-    t.string   "rp_gover"
-    t.string   "rp_country"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "rentps", ["user_id"], name: "index_rentps_on_user_id"
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "reserved_items", force: :cascade do |t|
     t.integer  "item_id"
@@ -115,8 +105,11 @@ ActiveRecord::Schema.define(version: 20170408071735) do
     t.string   "usr_gover"
     t.string   "usr_country"
     t.string   "password_digest"
+    t.integer  "categories_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "users", ["categories_id"], name: "index_users_on_categories_id"
 
 end

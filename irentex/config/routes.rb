@@ -9,12 +9,9 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
   resources :users do
-    resources :rentps do
       resources :items 
-      end 
   end
-  get    '/:id/showrentp',   to: 'rentp_normals#show'
-  get    '/showitem',   to: 'rentp_normals#index'
+
   get	 '/showcat',   to: 'category_items#show'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

@@ -9,45 +9,48 @@ def show
 end
 
 def new
-	@rentp = Rentp.find(params[:rentp_id])
-  @item  = @rentp.items.build
+	@user = User.find(params[:user_id])
+  @filters =  CategoryFilter.findByCat(@user.categories_id)
+  
+  @item  = @user.items.build
   @item_attachment = @item.item_attachments.build
+
   
 end
  
 def create
-	@rentp = Rentp.find(params[:rentp_id])
-	@item = @rentp.items.create(item_params)
+  @user = User.find(params[:user_id])
+ 	@item = @user.items.create(item_params)
  	/@item = Item.new(item_params)/
   	if @item.save
         params[:item_attachments]['image'].each do |a|
           @item_attachment = @item.item_attachments.create!(:image => a)
         end
-  		redirect_to user_rentp_path(:id => @rentp.id)
+  		redirect_to user_path(:id => params[:user_id])
 	else
   		render :action => 'new'
 	end	  	
 end
 	 
 def update
-  @rentp = Rentp.find(params[:rentp_id])
+  @user = User.find(params[:user_id])
   @item = Item.find(params[:id])
   if @item.update(item_params)
-  		redirect_to user_rentp_path(:id => @rentp.id)
+  		redirect_to user_path(:id => params[:user_id])
   else
     render 'edit'
   end
 end
 
 def destroy
-  @rentp = Rentp.find(params[:rentp_id])
-  @item = Item.find(params[:id])
+    @user = User.find(params[:user_id])
+ @item = Item.find(params[:id])
   @item.destroy
-  redirect_to user_rentp_path(:id => @rentp.id)
+  redirect_to user_path(:id => params[:user_id])
 end
 
 private
 def item_params
-	    params.require(:item).permit(:item_name,:item_desc,:item_price)
+	    params.require(:item).permit(:item_name,:item_desc,:item_price,:category_id)
 end
 end

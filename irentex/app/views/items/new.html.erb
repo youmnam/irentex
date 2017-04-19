@@ -3,7 +3,7 @@
 
 <h1>Add New Item</h1>
  
-<%= form_for :item, url: user_rentp_items_path do |u| %>
+<%= form_for :item, url: user_items_path do |u| %>
 	<p>
 	<%=	u.label :"Item Name:" %> <br> 
 	<%=	u.text_field :item_name  %> 
@@ -28,8 +28,24 @@
 	<%=	u.label :"Item Price:"  %> 	
 	<%=	u.text_field :item_price  %> 
 </p>
-
+<%= u.hidden_field :category_id, :value => @user.categories_id %>
 <p>
+
+<% count =0 
+   @filters.each do |i| %>
+	<%= f.label  i.nameOfLabel  
+	  var = i.nameOfLabel %><br>
+		 
+		 <% if i.typeOfLabel == "text" %>       
+             <input type="text" name ="<%=i.nameOfLabel%>" >       
+	        <% else %>
+             <input type="text" name ="F<%=i.nameOfLabel%>" >
+			 <input type="text" name ="T<%=i.nameOfLabel%>"" >
+ 	     <% end %>
+		 </br>
+         <% count = count+ 1
+            end %>
+
     <%=u.submit %>
 <% end %>
-<%= link_to 'Back', user_rentp_path(:id => @rentp.id) %>
+<%= link_to 'Back', user_path(:id => params[:user_id]) %>

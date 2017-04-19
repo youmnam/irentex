@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :usr_gover
       t.string :usr_country
       t.string :password_digest
+      t.references :categories,  index: true, foreign_key: true
       t.timestamps null: false
     end
   end

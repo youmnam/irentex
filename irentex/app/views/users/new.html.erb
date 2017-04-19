@@ -6,10 +6,6 @@
 	<%=	u.label :"first name" %>
 	<%=	u.text_field :usr_fname,  class: 'form-control' %> <br> 
 	
-	<%=	u.label :"date of birth:"  %> 
-	<%= date_field(:user, :usr_dob) %><br> <br> 
-	
-
 	<%=	u.label :"last name"  %> 
 	<%=	u.text_field :usr_lname,  class: 'form-control' %> <br> 
 
@@ -32,7 +28,7 @@
 	<%= u.text_field :usr_address, class: 'form-control' %> <br> 
 	
 	<%=	u.label :"Category:"  %>  
-	<%= 	u.select(:usr_cat) do %>
+	<%= 	u.select(:categories_id) do %>
 	<% 			@categories.each do |c| -%>
 	<%= 		content_tag(:option, c.CategoryName , value: c.id) %>	
 	<% end %>

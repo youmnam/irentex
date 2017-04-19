@@ -3,7 +3,6 @@ class CreateCarCats < ActiveRecord::Migration
     create_table :car_cats do |t|
       t.string :Name
       t.decimal :Price
-
       t.timestamps null: false
     end
   end
