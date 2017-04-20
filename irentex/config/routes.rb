@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :items 
   end
 
+  patch   '/uploadlogo',   to: 'users#uploadlogo'
   get	 '/showcat',   to: 'category_items#show'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

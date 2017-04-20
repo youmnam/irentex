@@ -2,15 +2,38 @@
   <div class="col-md-6 col-md-offset-3">
 <p><%= link_to '+add item', new_user_item_path(@user.id) %></p>
 <p>
-	<b>Welcome </b> <%=	@user.usr_fname  %>  <%=	@user.usr_lname  %> !
+	<b>Welcome </b> <%=	@user.usr_vname  %> !
 </p>
+<br>
+<br>
 
+<p id="notice"><%= notice %></p>
+ <strong>logo:</strong> <%= image_tag @user.usr_logo.thumb %>
+<br>
+
+<%= form_for @user, url: uploadlogo_path(:id => @user.id)   do |f| %>
+    <p><%= f.file_field :usr_logo  %> <br>
+    <%=f.submit "upload logo", class: "btn btn-primary"  %></p>
+<% end %>
+
+<br>
+<br>
 <p>
-	<b>logged-in via: </b> <%=	@user.usr_email  %> <br>
-	<b>Registered telephone no.: </b> <%=	@user.usr_tel  %> <br> 
-    <b>Date of Birth is:  </b> <%=	@user.usr_dob  %> <br>
-	<b>Your Address is:  </b> <%= @user.usr_address  %> , <%=h @user.usr_gover  %> <br>
-	<b> Category: </b> <%= @user_category.CategoryName%>
+	<b>logged-in via:            </b> <%=	@user.usr_email  %> <br>
+	<b>Registered telephone no.: </b> <%=	@user.usr_tel  %>   <br> 
+  <b>Description:              </b> <%=	@user.usr_description  %> <br>
+  <b>Delivery:                 </b> <% if @user.usr_delivery == 0 %> 
+                                         <%= :"home" %>
+                                     <% else 
+                                           if  @user.usr_delivery == 1 %>
+                                                <%= :"shop" %>
+                                            <% else %>
+                                                <%= :"home & shop" %>
+                                            <% end %>
+                                       <% end %> <br>
+
+	<b>Your Address is:          </b> <%= @user.usr_address  %> , <%=h @user.usr_gover  %> <br>
+	<b>Your Category is:         </b> <%= @user_category.CategoryName%>
 </p>
 
 <h3>Items:</h3>
@@ -48,8 +71,13 @@
 
 </table>
 
+<br><br>
+--> <%= link_to 'update info', edit_user_path(@user) %> <br>
 
+--> <%= link_to 'delete account', user_path(:id => @user.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> <br>
 
-<%= link_to 'log out', home_index_path %>
+--> <%= link_to 'log out', home_index_path %> 
 </div>
 </div>

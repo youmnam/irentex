@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-<%= form_for :user , url: users_path do |u| %>
+<%= form_for @user , url: user_path , method: :patch  do |u| %>
 
 	<%=	u.label :"Vendor Name" %>
-	<%=	u.text_field :usr_vname,  class: 'form-control' %> <br> 
+	<%=	u.text_field :usr_vname , class: 'form-control' %> <br> 
 
 
 	<%=	u.label :"Category:"  %>  
@@ -80,7 +80,7 @@
 
     <br>  
 <p>
-  <%=u.submit "Sign up", class: "btn btn-primary"  %>
+  <%=u.submit "Update", class: "btn btn-primary"  %>
 </p>
 <% end %>
 
