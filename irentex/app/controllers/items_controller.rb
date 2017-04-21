@@ -23,8 +23,7 @@ def create
  	@item = @user.items.create(item_params)
   @filters =  CategoryFilter.findByCat(@user.categories_id)
   
-  puts "I am hereeeeeeeeeeeeeeeeeee"
-
+  
   if @item.save
         params[:item_attachments]['image'].each do |a|
                   @item_attachment = @item.item_attachments.create!(:image => a)

@@ -12,25 +12,22 @@ class UsersController < ApplicationController
 	  @user_category = Category.find(@user.categories_id)
 	  @filters =  CategoryFilter.findByCat(@user.categories_id)
 	  
-	  #labels = Array.new(@filters.length)
-	  #itemspecs_all = Array.new(@items.length)
 	  labels =  []
 	  itemspecs_all = []
 
-	  k=0
+	  flag = 0
 	  @items.each do |i|
 	  		@itemSpecs = ItemSpec.findbyItem(i.id)
 	  		itemspecs_all.push(@itemSpecs)
-	  		if k ==0 
+	  		if flag == 0 
 	  			@itemSpecs.each do |is|
-	  				labels.push(CategoryFilter.find(is.category_filter_id).nameOfLabel)
+	  					labels.push(CategoryFilter.find(is.category_filter_id).nameOfLabel)
 	  			end
-	  			k = 10
 	  		end
+	  		flag = 1
 	  end 
 	  @labels = labels
 	  @itemspecs_all = itemspecs_all
-	  puts labels
 	end
 
 
