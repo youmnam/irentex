@@ -38,21 +38,46 @@ def create
 	end
   	  	
 end
+
+def edit
+  @item = Item.find(params[:id])
+  @itemSpecs = ItemSpec.findbyItem(@item.id)
+    @user = User.find(params[:user_id])
+  @filters =  CategoryFilter.findByCat(@user.categories_id)
+
+end
 	 
 def update
   @user = User.find(params[:user_id])
   @item = Item.find(params[:id])
+
+  @filters =  CategoryFilter.findByCat(@user.categories_id)
+  @itemSpecs = ItemSpec.findbyItem(@item.id)
+
   if @item.update(item_params)
-  		redirect_to user_path(:id => params[:user_id])
+      k =0
+      @filters.each do |fi| 
+            @itemSpecs[k].update(:value => params[fi.nameOfLabel] )
+            k = k+1
+      end
+      redirect_to user_path(:id => params[:user_id])
   else
     render 'edit'
   end
 end
 
 def destroy
-    @user = User.find(params[:user_id])
- @item = Item.find(params[:id])
+  @user = User.find(params[:user_id])
+  @item = Item.find(params[:id])
+
+  @itemSpecs = ItemSpec.findbyItem(@item.id)
+
+  @itemSpecs.each do |is|
+              is.destroy
+          end
   @item.destroy
+
+  
   redirect_to user_path(:id => params[:user_id])
 end
 

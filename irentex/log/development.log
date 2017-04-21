@@ -51452,3 +51452,2222 @@ ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.ma
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (69.5ms)
+
+
+Started DELETE "/users/1/items/1" for 127.0.0.1 at 2017-04-21 13:06:06 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"brcr5xyezb6qcbcYBCgFJ0j5tCoQDga0osunhdaFSzPL5m4EkrCMUb1IdIlMvyMx+8ZvrGIdT8nH7upnS+3ezg==", "user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (25.4ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 1]]
+  [1m[35m (98.4ms)[0m  commit transaction
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 126.6ms)
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/items_controller.rb:58:in `destroy'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:08:32 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 97ms (Views: 52.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:08:34 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 134ms (Views: 100.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:09:30 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 66ms (Views: 60.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 13:09:38 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"", "item_desc"=>"s", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"maxs", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"bmWQiiOYCnkVxuI0WJdV3ODrIqJJFUw80Jie+xy5APnLNNVprbZLlgL/IaUQAHPKU9T5JDsGBUG1vdMZgdGVBA==", "Color"=>"s", "Size"=>"s", "Occasion"=>"s", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f10f26bb4f8 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-17ma7xb.png>, @original_filename="canva-drill-tool-construction-icon-MAB60-bFvW0.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"canva-drill-tool-construction-icon-MAB60-bFvW0.png\"\r\nContent-Type: image/png\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["item_name", ""], ["item_desc", "s"], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 11:09:38.670089"], ["updated_at", "2017-04-21 11:09:38.670089"]]
+  [1m[36m (141.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["image", "canva-drill-tool-construction-icon-MAB60-bFvW0.png"], ["item_id", 14], ["created_at", "2017-04-21 11:09:39.568068"], ["updated_at", "2017-04-21 11:09:39.568068"]]
+  [1m[35m (250.6ms)[0m  commit transaction
+  [1m[36mCategoryFilter Load (0.5ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 14], ["category_filter_id", 1], ["value", "s"], ["created_at", "2017-04-21 11:09:39.865253"], ["updated_at", "2017-04-21 11:09:39.865253"]]
+  [1m[35m (134.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 14], ["category_filter_id", 2], ["value", "s"], ["created_at", "2017-04-21 11:09:40.006264"], ["updated_at", "2017-04-21 11:09:40.006264"]]
+  [1m[36m (126.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 14], ["category_filter_id", 3], ["value", "s"], ["created_at", "2017-04-21 11:09:40.138502"], ["updated_at", "2017-04-21 11:09:40.138502"]]
+  [1m[35m (185.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1662ms (ActiveRecord: 843.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:09:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '14')
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 14]]
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 71ms (Views: 62.0ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/users/1/items/14" for 127.0.0.1 at 2017-04-21 13:09:44 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OeUge5K3l8Rz1kNvaMLBraXXB4WB2NS8OTLBuoKBfgmctGWYHJnWK2TvgP4gVee7FujcA/PLncFcF4xYH+nr9A==", "user_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.5ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '14')[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `id' for #<ItemSpec::ActiveRecord_Relation:0x007f10f1f45480>):
+  app/controllers/items_controller.rb:57:in `destroy'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.1ms)
+
+
+Started GET "/users/1/items/14" for 127.0.0.1 at 2017-04-21 13:10:41 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"14"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 14]]
+  Rendered items/show.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 97ms (Views: 72.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:10:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '14')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 14]]
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 121ms (Views: 59.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:10:50 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '14')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 14]]
+  Rendered users/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 80ms (Views: 74.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/1/items/14" for 127.0.0.1 at 2017-04-21 13:10:53 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SBB5LIJp68wq2S/GvlrgSw2HORRa3pGGqYmwJgOKhRDtQTzPDEeqIz3g7Ff2zcZdvrjikijN2PvMrP3EnuIQ7Q==", "user_id"=>"1", "id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '14')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT  "item_specs".* FROM "item_specs" WHERE "item_specs"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 14]]
+  [1m[35m (78.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "item_specs" WHERE "item_specs"."id" = ?  [["id", 25]]
+  [1m[36m (86.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 180ms (ActiveRecord: 167.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:10:53 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 63ms (Views: 60.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:10:57 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 57ms (Views: 51.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:12:30 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 94ms (Views: 52.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:12:33 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')
+  Rendered items/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 125ms (Views: 65.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:13:35 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')
+  Rendered items/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 68ms (Views: 63.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 13:13:49 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"aa", "item_desc"=>"a", "item_price"=>"a", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"72B6EBdyN1TZFV++ls4+dadace5HUNg6IfSSMDRitutKMT/zmVx2u84snC/eWRhjFGWqaDVDkUdE0d/SqQojFg==", "Color"=>"a", "Size"=>"s", "Occasion"=>"q", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f10f2806b78 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-1fxv72u.jpg>, @original_filename="BM445.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"BM445.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["item_name", "aa"], ["item_desc", "a"], ["item_price", 0.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 11:13:49.021721"], ["updated_at", "2017-04-21 11:13:49.021721"]]
+  [1m[35m (158.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "BM445.jpg"], ["item_id", 15], ["created_at", "2017-04-21 11:13:49.760619"], ["updated_at", "2017-04-21 11:13:49.760619"]]
+  [1m[36m (70.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 15], ["category_filter_id", 1], ["value", "a"], ["created_at", "2017-04-21 11:13:49.858951"], ["updated_at", "2017-04-21 11:13:49.858951"]]
+  [1m[36m (65.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 15], ["category_filter_id", 2], ["value", "s"], ["created_at", "2017-04-21 11:13:49.928867"], ["updated_at", "2017-04-21 11:13:49.928867"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 15], ["category_filter_id", 3], ["value", "q"], ["created_at", "2017-04-21 11:13:50.029812"], ["updated_at", "2017-04-21 11:13:50.029812"]]
+  [1m[36m (83.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1102ms (ActiveRecord: 478.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:13:50 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '15')[0m
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 15]]
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 67ms (Views: 57.5ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/users/1/items/15" for 127.0.0.1 at 2017-04-21 13:13:59 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VUrUClx4noxMrMMHKQsBWx+uARZimdoMscQYROhp/2zwG5Hp0lbfY1uVAJZhnCdNrJHakBCKk3HU4VWmdQFqkQ==", "user_id"=>"1", "id"=>"15"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '15')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "item_specs" WHERE "item_specs"."id" = ?  [["id", 28]]
+  [1m[36m (63.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "item_specs" WHERE "item_specs"."id" = ?[0m  [["id", 29]]
+  [1m[35m (85.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "item_specs" WHERE "item_specs"."id" = ?  [["id", 30]]
+  [1m[36m (75.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 15]]
+  [1m[35m (74.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 317ms (ActiveRecord: 301.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:13:59 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 56ms (Views: 52.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:22:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 82ms (Views: 77.0ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItemSpecs (20170420133549)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "item_specs"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170420133549"]]
+  [1m[35m (89.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategoryFilters (20170408071735)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "category_filters"
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170408071735"]]
+  [1m[35m (115.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCarCats (20170407142212)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "car_cats"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170407142212"]]
+  [1m[35m (61.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategories (20170407141307)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "categories"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170407141307"]]
+  [1m[35m (69.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItemAttachments (20170402153124)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "item_attachments"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170402153124"]]
+  [1m[35m (83.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItems (20170315143525)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "items"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170315143525"]]
+  [1m[35m (56.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170315142400)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "users"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170315142400"]]
+  [1m[35m (60.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-21 13:36:18 +0200
+Processing by HomeController#index as HTML
+  [1m[36mCategory Load (20.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered home/index.html.erb within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 20.9ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: categories: SELECT "categories".* FROM "categories"):
+    68:         <!-- Page Features -->
+    69:         <div class="row text-center">
+    70: 			<% count =0 
+    71:                @categories.each do |i| %>
+    72: 			
+    73: 	            <div class="col-md-3 col-sm-6 hero-feature">
+    74: 	                <div class="thumbnail">
+  app/views/home/index.html.erb:71:in `_app_views_home_index_html_erb___2257648287862568481_69855375558740'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170315142400)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "usr_vname" varchar, "usr_email" varchar, "usr_tel" varchar, "usr_address" varchar, "usr_gover" varchar, "usr_city" varchar, "usr_logo" varchar, "usr_delivery" integer, "usr_description" varchar, "password_digest" varchar, "categories_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_users_on_categories_id" ON "users" ("categories_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170315142400"]]
+  [1m[36m (71.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItems (20170315143525)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_name" varchar, "item_desc" varchar, "item_price" decimal, "item_per" varchar, "item_maxp" varchar, "item_minp" varchar, "item_status" integer, "item_available" integer, "item_nviews" varchar, "item_nvreqs" varchar, "user_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_items_on_category_id" ON "items" ("category_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170315143525"]]
+  [1m[35m (70.6ms)[0m  commit transaction
+Migrating to CreateItemAttachments (20170402153124)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "item_attachments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170402153124"]]
+  [1m[35m (96.5ms)[0m  commit transaction
+Migrating to CreateCategories (20170407141307)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "CategoryName" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170407141307"]]
+  [1m[35m (73.8ms)[0m  commit transaction
+Migrating to CreateCarCats (20170407142212)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "car_cats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170407142212"]]
+  [1m[35m (72.2ms)[0m  commit transaction
+Migrating to CreateCategoryFilters (20170408071735)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "category_filters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nameOfLabel" varchar, "typeOfLabel" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX "index_category_filters_on_category_id" ON "category_filters" ("category_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170408071735"]]
+  [1m[36m (93.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemSpecs (20170420133549)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "item_specs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer, "category_filter_id" integer, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_item_specs_on_item_id" ON "item_specs" ("item_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_item_specs_on_category_filter_id" ON "item_specs" ("category_filter_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170420133549"]]
+  [1m[35m (82.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_category_filter_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_category_filter_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-21 13:39:06 +0200
+Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 61ms (Views: 55.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/showcat?iid=1" for 127.0.0.1 at 2017-04-21 13:39:55 +0200
+Processing by CategoryItemsController#show as HTML
+  Parameters: {"iid"=>"1"}
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  [1m[35mCarCat Load (0.2ms)[0m  SELECT "car_cats".* FROM "car_cats"  ORDER BY "car_cats"."id" ASC
+  Rendered category_items/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 66ms (Views: 60.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-04-21 13:40:06 +0200
+Processing by UsersController#new as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered users/new.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-21 13:41:25 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lCKN8wKKlvsaUqwQIIj8fDMbDzp4uS+Vv4d4TG++lnwxc8gQjKTXFA1rb4FoH9pqgCTUvAqqZujaojWu8tYDgQ==", "user"=>{"usr_vname"=>"Salma Atelier ", "categories_id"=>"1", "usr_description"=>"we offer wedding dresses for rent", "usr_email"=>"salam@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "usr_tel"=>"01112249433", "usr_address"=>"12 Abbas Akkad St, Nasr City", "usr_gover"=>"Cairo", "usr_delivery"=>"2"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("usr_vname", "usr_description", "usr_email", "password_digest", "usr_tel", "usr_address", "usr_gover", "categories_id", "usr_delivery", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["usr_vname", "Salma Atelier "], ["usr_description", "we offer wedding dresses for rent"], ["usr_email", "salam@gmail.com"], ["password_digest", "$2a$10$iQ/gl6Xrp37HBfSnE2pYcOAkL3ZyuibIz0WO3bWaNdrSbWAYg1UV."], ["usr_tel", "01112249433"], ["usr_address", "12 Abbas Akkad St, Nasr City"], ["usr_gover", "Cairo"], ["categories_id", 1], ["usr_delivery", 2], ["created_at", "2017-04-21 11:41:25.343814"], ["updated_at", "2017-04-21 11:41:25.343814"]]
+  [1m[35m (70.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 205ms (ActiveRecord: 71.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:41:25 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 82ms (Views: 50.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:41:37 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 84ms (Views: 52.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:45:10 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 164ms (Views: 157.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 13:46:03 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"wedding dress 1", "item_desc"=>"wedding dress 1 is unique ", "item_price"=>"3000", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"QclHs+E4GpBIErP8xxilHnxt7l59cBsaOpv7OSv0x0TkmAJQbxZbf18rcG2Pj4MIz1I12A9jUmdfvrbbtpxSuQ==", "Size"=>"M", "Color"=>"white", "Occasion"=>"wedding", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f10f8dc9aa0 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-fbf87c.jpg>, @original_filename="4b3b843a1e7896f2acdf098d793a35a5.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"4b3b843a1e7896f2acdf098d793a35a5.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["item_name", "wedding dress 1"], ["item_desc", "wedding dress 1 is unique "], ["item_price", 3000.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 11:46:03.137158"], ["updated_at", "2017-04-21 11:46:03.137158"]]
+  [1m[36m (229.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["image", "4b3b843a1e7896f2acdf098d793a35a5.jpg"], ["item_id", 1], ["created_at", "2017-04-21 11:46:03.930840"], ["updated_at", "2017-04-21 11:46:03.930840"]]
+  [1m[35m (78.2ms)[0m  commit transaction
+  [1m[36mCategoryFilter Load (0.6ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 1], ["category_filter_id", 1], ["value", "M"], ["created_at", "2017-04-21 11:46:04.034693"], ["updated_at", "2017-04-21 11:46:04.034693"]]
+  [1m[35m (78.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 1], ["category_filter_id", 2], ["value", "white"], ["created_at", "2017-04-21 11:46:04.118617"], ["updated_at", "2017-04-21 11:46:04.118617"]]
+  [1m[36m (57.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 1], ["category_filter_id", 3], ["value", "wedding"], ["created_at", "2017-04-21 11:46:04.184128"], ["updated_at", "2017-04-21 11:46:04.184128"]]
+  [1m[35m (83.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1139ms (ActiveRecord: 532.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:46:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '1')
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 62ms (Views: 53.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1/items/1" for 127.0.0.1 at 2017-04-21 13:46:10 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered items/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/item_attachments/1" for 127.0.0.1 at 2017-04-21 13:46:12 +0200
+Processing by ItemAttachmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT  "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered item_attachments/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 96ms (Views: 93.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-21 13:46:29 +0200
+Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/showcat?iid=1" for 127.0.0.1 at 2017-04-21 13:46:31 +0200
+Processing by CategoryItemsController#show as HTML
+  Parameters: {"iid"=>"1"}
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  [1m[35mCarCat Load (0.3ms)[0m  SELECT "car_cats".* FROM "car_cats"  ORDER BY "car_cats"."id" ASC
+  Rendered category_items/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 69ms (Views: 65.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-04-21 13:46:36 +0200
+Processing by UsersController#new as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered users/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 83ms (Views: 81.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-21 13:48:43 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6LXhC4z5fjUwFbclivDMN0UIwHPUg1gXh40F6y32nBtN5KToAtc/2icsdLTCZ+oh9jcb9aaQEWriqEgJsJ4J5g==", "user"=>{"usr_vname"=>"Ahmed Car Rental", "categories_id"=>"2", "usr_description"=>"we offer Cars  for rent ", "usr_email"=>"ahmed@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "usr_tel"=>"0112249433", "usr_address"=>"6 el khalil st. lebanon Sqr", "usr_gover"=>"Cairo", "usr_delivery"=>"1"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("usr_vname", "usr_description", "usr_email", "password_digest", "usr_tel", "usr_address", "usr_gover", "categories_id", "usr_delivery", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["usr_vname", "Ahmed Car Rental"], ["usr_description", "we offer Cars  for rent "], ["usr_email", "ahmed@gmail.com"], ["password_digest", "$2a$10$KeP2TKBuHxCOuVdRImWECuzyZ0ZYEBpb9o8UdB4o2L5GKFRaiBen2"], ["usr_tel", "0112249433"], ["usr_address", "6 el khalil st. lebanon Sqr"], ["usr_gover", "Cairo"], ["categories_id", 2], ["usr_delivery", 1], ["created_at", "2017-04-21 11:48:43.592235"], ["updated_at", "2017-04-21 11:48:43.592235"]]
+  [1m[35m (71.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 186ms (ActiveRecord: 72.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 13:48:43 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '2')[0m
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 49.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 13:48:49 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.6ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')[0m
+  Rendered items/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 65ms (Views: 57.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 13:49:51 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '1')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 101ms (Views: 88.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 13:49:55 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 65ms (Views: 61.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 13:53:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (2.9ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '2')
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 84ms (Views: 75.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 13:53:29 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 70ms (Views: 58.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 13:55:50 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (113.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.6ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 14:00:32 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 78ms (Views: 71.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:00:32 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.8ms)
+
+
+Started POST "/users/2/items" for 127.0.0.1 at 2017-04-21 14:02:12 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"2", "item_name"=>"BMW Car 1", "item_desc"=>"good car", "item_price"=>"3000", "item_per"=>"day", "item_maxp"=>"30 days", "item_minp"=>"2 days"}, "utf8"=>"✓", "authenticity_token"=>"F9xiCGNWmDcpMjntzFLw7gexBnPgv4ckz4kQzxdDEhiyjSfr7XjZ2D4L+nyExdb4tI7d9ZKszlmqrF0tiiuH5Q==", "Color"=>"black", "Model"=>"BMW 324", "Manufacturing Year"=>"2008", "Driver Option"=>"no", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x00000005ac0288 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-ac4sy.jpg>, @original_filename="CosyVehicleImage.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"CosyVehicleImage.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["item_name", "BMW Car 1"], ["item_desc", "good car"], ["item_price", 3000.0], ["category_id", 2], ["user_id", 2], ["created_at", "2017-04-21 12:02:12.772645"], ["updated_at", "2017-04-21 12:02:12.772645"]]
+  [1m[35m (272.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "CosyVehicleImage.jpg"], ["item_id", 2], ["created_at", "2017-04-21 12:02:13.151463"], ["updated_at", "2017-04-21 12:02:13.151463"]]
+  [1m[36m (72.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.5ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 2], ["category_filter_id", 4], ["value", "black"], ["created_at", "2017-04-21 12:02:13.238426"], ["updated_at", "2017-04-21 12:02:13.238426"]]
+  [1m[36m (78.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 2], ["category_filter_id", 5], ["value", "BMW 324"], ["created_at", "2017-04-21 12:02:13.324069"], ["updated_at", "2017-04-21 12:02:13.324069"]]
+  [1m[35m (81.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 2], ["category_filter_id", 6], ["value", "2008"], ["created_at", "2017-04-21 12:02:13.412375"], ["updated_at", "2017-04-21 12:02:13.412375"]]
+  [1m[36m (60.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 2], ["category_filter_id", 7], ["value", "no"], ["created_at", "2017-04-21 12:02:13.479513"], ["updated_at", "2017-04-21 12:02:13.479513"]]
+  [1m[35m (58.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 778ms (ActiveRecord: 628.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:02:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '2')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 106ms (Views: 96.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:02:13 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (67.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.3ms)
+
+
+Started GET "/item_attachments/2" for 127.0.0.1 at 2017-04-21 14:02:18 +0200
+Processing by ItemAttachmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT  "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered item_attachments/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 61ms (Views: 58.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:02:39 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  Rendered items/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 46ms (Views: 45.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:12:34 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered items/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.6ms)
+
+SyntaxError (/home/youmna/Desktop/irentex/code_rails/irentex/irentex/app/views/items/edit.html.erb:61: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/youmna/Desktop/irentex/code_rails/irentex/irentex/app/views/items/edit.html.erb:63: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/items/edit.html.erb:61: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/items/edit.html.erb:63: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.9ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:13:11 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered items/edit.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `categories_id' for nil:NilClass):
+     6: <table>
+     7: <%= form_for @item, url: user_item_path, method: :patch   do |u| %>
+     8: 	<p>
+     9: 		<%= u.hidden_field :category_id, :value => @user.categories_id %>
+    10: 		<tr><td> <%=	u.label :"Item Name:"         %> </td><td>  <%=	u.text_field :item_name  %></td></tr>
+    11: 		<tr><td> <%=	u.label :"Item Description:"  %> </td><td> <%=	u.text_area :item_desc  %> </td></tr>
+    12: 		<tr><td> <%=	u.label :"Item Price:"        %> </td><td> <%=	u.text_field :item_price %> </td>
+  app/views/items/edit.html.erb:9:in `block in _app_views_items_edit_html_erb___2354696022585994100_69855373293800'
+  app/views/items/edit.html.erb:7:in `_app_views_items_edit_html_erb___2354696022585994100_69855373293800'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.2ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:13:35 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered items/edit.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    31: 	<tr></tr>	
+    32: 	<tr><td><strong> Product Spesfications: </strong></td><td></td><td></td></tr>
+    33: 	<% count =0 
+    34: 	   @filters.each do |i|   %>
+    35: 			 	<% if i.typeOfLabel == "text" %>
+    36: 			 		<tr>
+    37: 			 			<td><%=i.nameOfLabel%></td>
+  app/views/items/edit.html.erb:34:in `block in _app_views_items_edit_html_erb___2354696022585994100_69855376360160'
+  app/views/items/edit.html.erb:7:in `_app_views_items_edit_html_erb___2354696022585994100_69855376360160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.1ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:14:16 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  [1m[36mItemSpec Load (0.4ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered items/edit.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 194ms (Views: 117.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:14:16 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (53.6ms)
+
+
+Started PATCH "/users/2/items/2" for 127.0.0.1 at 2017-04-21 14:16:12 +0200
+Processing by ItemsController#update as HTML
+  Parameters: {"item"=>{"category_id"=>"2", "item_name"=>"BMW Car 1", "item_desc"=>"good car gooood", "item_price"=>"3000.0", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min", "item_attachments_attributes"=>{"0"=>{"id"=>"2"}}}, "utf8"=>"✓", "authenticity_token"=>"ARc+lX7XTYpE8lZySQZuWa9Bzwk2zTQdTU8bl9ISUpmkRnt28PkMZVPLleMBkUhPHH4Uj0TefWAoalZ1T3rHZA==", "Color"=>"black", "Model"=>"BMW 324", "Manufacturing Year"=>"2008", "Driver Option"=>"no", "commit"=>"Update Item", "user_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 2]]
+Unpermitted parameters: item_per, item_maxp, item_minp, item_attachments_attributes
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "items" SET "item_desc" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["item_desc", "good car gooood"], ["updated_at", "2017-04-21 12:16:12.055209"], ["id", 2]]
+  [1m[36m (71.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 80ms (ActiveRecord: 71.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:16:12 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '2')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 77ms (Views: 58.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:16:12 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (46.0ms)
+
+
+Started GET "/users/2/items/2" for 127.0.0.1 at 2017-04-21 14:16:30 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered items/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 62ms (Views: 59.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2/items/2" for 127.0.0.1 at 2017-04-21 14:16:33 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered items/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 76ms (Views: 73.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:16:45 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.5ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')[0m
+  [1m[35mItemSpec Load (0.4ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  Rendered items/edit.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 70ms (Views: 64.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:17:28 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.5ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered items/edit.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 61ms (Views: 57.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:17:28 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (87.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (30.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (65.6ms)
+
+
+Started GET "/users/2/items/2/edit" for 127.0.0.1 at 2017-04-21 14:24:28 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  Rendered items/edit.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 150ms (Views: 89.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:24:28 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (12.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (3.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.9ms)
+
+
+Started PATCH "/users/2/items/2" for 127.0.0.1 at 2017-04-21 14:24:35 +0200
+Processing by ItemsController#update as HTML
+  Parameters: {"item"=>{"category_id"=>"2", "item_name"=>"BMW Car 1", "item_desc"=>"good car gooood", "item_price"=>"3000.0", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min", "item_attachments_attributes"=>{"0"=>{"id"=>"2"}}}, "utf8"=>"✓", "authenticity_token"=>"LnjxA60jgYORXP43N3ALw9h9f0mkviB6hmWNe6TLdLiLKbTgIw3AbIZlPaZ/5y3Va0Kkz9ataQfjQMCZOaPhRQ==", "Color"=>"black", "Model"=>"BMW 324", "Manufacturing Year"=>"2008", "Driver Option"=>"yes", "commit"=>"Update Item", "user_id"=>"2", "id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: item_per, item_maxp, item_minp, item_attachments_attributes
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "item_specs" SET "value" = ?, "updated_at" = ? WHERE "item_specs"."id" = ?[0m  [["value", "yes"], ["updated_at", "2017-04-21 12:24:35.405744"], ["id", 7]]
+  [1m[35m (160.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 180ms (ActiveRecord: 162.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:24:35 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '2')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 87ms (Views: 70.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:24:35 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (71.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (31.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (69.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:36:20 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '2')
+  [1m[36mItemSpec Load (0.5ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 60ms (Views: 51.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:36:20 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (57.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (73.9ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 14:36:22 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 69ms (Views: 59.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 14:37:26 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 90ms (Views: 85.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:37:26 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (64.2ms)
+
+
+Started POST "/users/2/items" for 127.0.0.1 at 2017-04-21 14:37:30 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a8Pg6nnWiZRr6MkO/I7a56qI9+3E8HF8v+UwXqDxLL3OkqUJ9/jIe3zRCp+0GfzxGbcsa7bjOAHawH28PZm5QA==", "item"=>{"category_id"=>"2", "item_name"=>"", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "Color"=>"", "Model"=>"", "Manufacturing Year"=>"", "Driver Option"=>"", "commit"=>"Save Item", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (20.8ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["item_name", ""], ["item_desc", ""], ["category_id", 2], ["user_id", 2], ["created_at", "2017-04-21 12:37:30.545316"], ["updated_at", "2017-04-21 12:37:30.545316"]]
+  [1m[35m (76.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 97.9ms)
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/items_controller.rb:28:in `create'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.3ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:37:33 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (50.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:37:35 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '2')[0m
+  [1m[35mItemSpec Load (0.4ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 3]]
+  [1m[36mItemSpec Load (0.4ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '3')[0m
+  Rendered users/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 141ms (Views: 124.7ms | ActiveRecord: 3.6ms)
+
+
+Started DELETE "/users/2/items/3" for 127.0.0.1 at 2017-04-21 14:37:38 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QaoFmKVOMetkmLE4zB6pWr492qKmEsFb7t8By5/BVWXk+0B7K2BwBHOhcqmEiY9MDQIBJNQBiCaL+kwpAqnAmA==", "user_id"=>"2", "id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemSpec Load (0.4ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '3')
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 3]]
+  [1m[36m (67.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 77ms (ActiveRecord: 69.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:37:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '2')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 93ms (Views: 83.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:37:38 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (57.1ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 14:38:19 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 72ms (Views: 65.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/items/new" for 127.0.0.1 at 2017-04-21 14:40:06 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  Rendered items/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 93ms (Views: 87.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:40:06 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (81.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (31.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.8ms)
+
+
+Started POST "/users/2/items" for 127.0.0.1 at 2017-04-21 14:40:57 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ulbf0Lt20Ha/saYxDJXGmJocfWCDzDgp98ChzgI+gOL3B5ozNViRmaiIZaBEAuCOKSOm5vHfcVSS5ewsn1YVHw==", "item"=>{"category_id"=>"2", "item_name"=>"BMW car2", "item_desc"=>"good car 2 ", "item_price"=>"300", "item_per"=>"day", "item_maxp"=>"20", "item_minp"=>"2"}, "Color"=>"Red", "Model"=>"BMW 2323", "Manufacturing Year"=>"2008", "Driver Option"=>"yes", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f10f8c52078 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-ds6j00.jpg>, @original_filename="3-series-m-sport-package-01.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"3-series-m-sport-package-01.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["item_name", "BMW car2"], ["item_desc", "good car 2 "], ["item_price", 300.0], ["category_id", 2], ["user_id", 2], ["created_at", "2017-04-21 12:40:57.349236"], ["updated_at", "2017-04-21 12:40:57.349236"]]
+  [1m[35m (178.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "3-series-m-sport-package-01.jpg"], ["item_id", 4], ["created_at", "2017-04-21 12:40:58.465300"], ["updated_at", "2017-04-21 12:40:58.465300"]]
+  [1m[36m (76.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '2')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 4], ["category_filter_id", 4], ["value", "Red"], ["created_at", "2017-04-21 12:40:58.566595"], ["updated_at", "2017-04-21 12:40:58.566595"]]
+  [1m[36m (60.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 4], ["category_filter_id", 5], ["value", "BMW 2323"], ["created_at", "2017-04-21 12:40:58.632604"], ["updated_at", "2017-04-21 12:40:58.632604"]]
+  [1m[35m (83.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 4], ["category_filter_id", 6], ["value", "2008"], ["created_at", "2017-04-21 12:40:58.720962"], ["updated_at", "2017-04-21 12:40:58.720962"]]
+  [1m[36m (73.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 4], ["category_filter_id", 7], ["value", "yes"], ["created_at", "2017-04-21 12:40:58.798978"], ["updated_at", "2017-04-21 12:40:58.798978"]]
+  [1m[35m (70.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 1531ms (ActiveRecord: 547.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-21 14:40:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '2')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '2')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 4]]
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '4')[0m
+  Rendered users/show.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 73ms (Views: 62.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:40:59 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (97.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 14:41:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '1')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 198ms (Views: 189.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 14:41:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id = '1')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id = '1')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 77ms (Views: 68.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:41:15 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (61.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.9ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 14:41:21 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 57ms (Views: 52.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 14:42:24 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  Rendered items/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 65ms (Views: 60.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:42:25 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (18.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (136.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (31.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (66.7ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 14:44:13 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cxSQyGAHAzsSuWTPnce5sGIo30sgMpOkS/qMpZXXNtDWRdUr7ilC1AWAp17VUJ+m0RcEzVIh2tku38FHCL+jLQ==", "item"=>{"category_id"=>"1", "item_name"=>"Pink Dress", "item_desc"=>"pinky dress ", "item_price"=>"300", "item_per"=>"day", "item_maxp"=>"8", "item_minp"=>"2"}, "Size"=>"S", "Color"=>"Pink", "Occasion"=>"party", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f10f90139a0 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-6106-1tpxcaz.jpg>, @original_filename="y1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"y1.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["item_name", "Pink Dress"], ["item_desc", "pinky dress "], ["item_price", 300.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 12:44:13.582319"], ["updated_at", "2017-04-21 12:44:13.582319"]]
+  [1m[36m (232.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["image", "y1.jpg"], ["item_id", 5], ["created_at", "2017-04-21 12:44:14.105058"], ["updated_at", "2017-04-21 12:44:14.105058"]]
+  [1m[35m (79.5ms)[0m  commit transaction
+  [1m[36mCategoryFilter Load (0.6ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 5], ["category_filter_id", 1], ["value", "S"], ["created_at", "2017-04-21 12:44:14.200058"], ["updated_at", "2017-04-21 12:44:14.200058"]]
+  [1m[35m (80.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 5], ["category_filter_id", 2], ["value", "Pink"], ["created_at", "2017-04-21 12:44:14.286740"], ["updated_at", "2017-04-21 12:44:14.286740"]]
+  [1m[36m (94.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 5], ["category_filter_id", 3], ["value", "party"], ["created_at", "2017-04-21 12:44:14.387014"], ["updated_at", "2017-04-21 12:44:14.387014"]]
+  [1m[35m (104.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 919ms (ActiveRecord: 595.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 14:44:14 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id = '1')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '1')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 5]]
+  [1m[35mItemSpec Load (0.5ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id = '5')
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 82ms (Views: 73.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-04-21 14:44:14 +0200
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (55.5ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 14:44:25 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id = '1')
+  Rendered items/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 70ms (Views: 62.6ms | ActiveRecord: 0.6ms)

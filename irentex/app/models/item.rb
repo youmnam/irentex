@@ -10,6 +10,6 @@ def self.search(search)
 end
 
 def self.findwithuser(userid)
-  where("user_id LIKE ?", "%#{userid}%") 
+  where("user_id = ?", "#{userid}") 
 end
 end
