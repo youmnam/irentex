@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   patch   '/uploadlogo',   to: 'users#uploadlogo'
+  get   '/markavailable',   to: 'items#markavailable'
   get	 '/showcat',   to: 'category_items#show'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

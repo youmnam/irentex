@@ -14,10 +14,20 @@ def new
   
   @item  = @user.items.build
   @item_attachment = @item.item_attachments.build
-
-  
 end
  
+def markavailable
+    @item = Item.find(params[:id])
+    if (params[:iava] == '0')  #user want to make it available
+      @item.update(:item_available => '1')
+    else
+      #user want to make it not available
+      @item.update(:item_available => '0')
+    end
+    redirect_to user_path(:id => params[:user_id])
+
+end
+
 def create
   @user = User.find(params[:user_id])
  	@item = @user.items.create(item_params)
@@ -83,6 +93,6 @@ end
 
 private
 def item_params
-	    params.require(:item).permit(:item_name,:item_desc,:item_price,:category_id)
+	    params.require(:item).permit(:item_name,:item_desc,:item_price,:category_id,:item_available, :item_per, :item_maxp, :item_minp)
 end
 end

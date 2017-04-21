@@ -3,12 +3,14 @@
 
 <h1>Edit Item</h1>
 
-<table>
 <%= form_for @item, url: user_item_path, method: :patch   do |u| %>
+<table>
+
 	<p>
 		<%= u.hidden_field :category_id, :value => @user.categories_id %>
 		<tr><td> <%=	u.label :"Item Name:"         %> </td><td>  <%=	u.text_field :item_name  %></td></tr>
 		<tr><td> <%=	u.label :"Item Description:"  %> </td><td> <%=	u.text_area :item_desc  %> </td></tr>
+		<tr><td> <%=	u.label :"Item Available:"  %> </td><td> <%=	u.text_field :item_available  %> </td></tr>
 		<tr><td> <%=	u.label :"Item Price:"        %> </td><td> <%=	u.text_field :item_price %> </td>
 		<td> <%=	u.label :"Price per"          %> </td><td>  <%=   u.select(:item_per) do %>
 							                        <%[['day','day'], 
@@ -51,8 +53,9 @@
  </tr>
 
    <tr><td> <%=u.submit %></td><td></td></tr>
-<% end %>
 
 </table>
+
+<% end %>
 
 <%= link_to 'Back', user_path(:id => params[:user_id]) %>

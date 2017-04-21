@@ -3,12 +3,12 @@
 <%= link_to 'Back', user_path(:id => params[:user_id]) %>
 
 <h1>Add New Item</h1>
-<table>
-<%= form_for :item, url: user_items_path  do |u| %>
 
+<%= form_for :item, url: user_items_path  do |u| %>
+<table>
   <tr>
     <th><%= u.hidden_field :category_id, :value => @user.categories_id %></th>
-    <th></th>
+    <th><%= u.hidden_field :item_available, :value => :"1" %></th>
     <th></th>
   </tr>
   <tr>
@@ -74,8 +74,7 @@
     <td></td>
     <td></td>
   </tr>
-<% end %>
-
 </table>
+<% end %>
 
 
