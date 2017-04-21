@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408071735) do
+ActiveRecord::Schema.define(version: 20170420133549) do
 
   create_table "car_cats", force: :cascade do |t|
     t.string   "Name"
@@ -43,14 +43,32 @@ ActiveRecord::Schema.define(version: 20170408071735) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_specs", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "category_filter_id"
+    t.string   "value"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "item_specs", ["category_filter_id"], name: "index_item_specs_on_category_filter_id"
+  add_index "item_specs", ["item_id"], name: "index_item_specs_on_item_id"
+
   create_table "items", force: :cascade do |t|
     t.string   "item_name"
     t.string   "item_desc"
     t.decimal  "item_price"
-    t.integer  "user_id",     null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "item_per"
+    t.string   "item_maxp"
+    t.string   "item_minp"
+    t.integer  "item_status"
+    t.integer  "item_available"
+    t.string   "item_nviews"
+    t.string   "item_nvreqs"
+    t.integer  "user_id",        null: false
+    t.integer  "category_id",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id"

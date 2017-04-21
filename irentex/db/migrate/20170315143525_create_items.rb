@@ -12,7 +12,6 @@ class CreateItems < ActiveRecord::Migration
       t.string  :item_nviews
       t.string  :item_nvreqs
 
-      
       t.references :user, index: true, foreign_key: true,null: false
 	    t.references :category, index: true, foreign_key: true,null: false
       t.timestamps null: false

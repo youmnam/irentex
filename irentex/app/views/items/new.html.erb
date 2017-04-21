@@ -2,50 +2,53 @@
 
 
 <h1>Add New Item</h1>
- 
+ <table>
 <%= form_for :item, url: user_items_path do |u| %>
 	<p>
-	<%=	u.label :"Item Name:" %> <br> 
-	<%=	u.text_field :item_name  %> 
-</p>
+		<%= u.hidden_field :category_id, :value => @user.categories_id %>
+		<tr><td> <%=	u.label :"Item Name:"         %> </td><td>  <%=	u.text_field :item_name  %></td></tr>
+		<tr><td> <%=	u.label :"Item Description:"  %> </td><td> <%=	u.text_area :item_desc  %> </td></tr>
+		<tr><td> <%=	u.label :"Item Price:"        %> </td><td> <%=	u.text_field :item_price %> </td>
+		<td> <%=	u.label :"Price per"          %> </td><td>  <%=   u.select(:item_per) do %>
+							                        <%[['day','day'], 
+							                           ['week', 'week'],
+							                           ['month', 'month']].each do |c| -%>
+	                                                    <%= content_tag(:option, c.first, value: c.last) %>	
+	                                                    <% end %>
+	                                                    <% end %>
+	    </td></tr>
+	    <tr><td> <%=	u.label :"Rental Period:"     %> </td>
+	        <td> <%=	u.text_field :item_maxp, :value =>"max" %> </td><td></tr><tr><td></td>
+	        <td> <%=	u.text_field :item_minp, :value =>"min" %> </td></tr>
 
+	<tr><td></td></tr>	
+	<tr><td><strong> Product Spesfications: </strong></td></tr>
+	<% count =0 
+	   @filters.each do |i| %>
+			 	<% if i.typeOfLabel == "Text" %>
+			 		<tr>
+			 			<td><%=i.nameOfLabel%></td>
+			 			<td><input type="text" name ="<%=i.nameOfLabel%>"> </td> 	
+			 		<tr>    
+	            <% else %>
+	            	<input type="text" name ="F<%=i.nameOfLabel%>" >
+					<input type="text" name ="T<%=i.nameOfLabel%>"" >
+	 	     <% end %>
+			 </br>
+	         <% count = count+ 1
+	    end %>
 <p>
-	<%=	u.label :"Item Description:"  %> <br> 
-	<%=	u.text_field :item_desc  %> 
-</p>
-
-<p>
+</table>
   <%= u.fields_for :item_attachments do |p| %>
      <div class="field">
-       <%= p.label :image %><br>
-       <%= p.file_field :image, :multiple => true, name: "item_attachments[image][]" %>
+      <%= p.label :image %> 
+      <%= p.file_field :image, :multiple => true, name: "item_attachments[image][]" %>
      </div>
 
    <% end %>
 </p>
 
-<p>
-	<%=	u.label :"Item Price:"  %> 	
-	<%=	u.text_field :item_price  %> 
-</p>
-<%= u.hidden_field :category_id, :value => @user.categories_id %>
-<p>
-
-<% count =0 
-   @filters.each do |i| %>
-	<%= f.label  i.nameOfLabel  
-	  var = i.nameOfLabel %><br>
-		 
-		 <% if i.typeOfLabel == "text" %>       
-             <input type="text" name ="<%=i.nameOfLabel%>" >       
-	        <% else %>
-             <input type="text" name ="F<%=i.nameOfLabel%>" >
-			 <input type="text" name ="T<%=i.nameOfLabel%>"" >
- 	     <% end %>
-		 </br>
-         <% count = count+ 1
-            end %>
-
     <%=u.submit %>
 <% end %>
+
 <%= link_to 'Back', user_path(:id => params[:user_id]) %>

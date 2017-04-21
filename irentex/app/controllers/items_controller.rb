@@ -21,12 +21,28 @@ end
 def create
   @user = User.find(params[:user_id])
  	@item = @user.items.create(item_params)
+
+  #to add product specs
+  labels_id = []
+  values = []
+  @filters =  CategoryFilter.findByCat(@user.categories_id)
+  
+  #pvalues = Array.new(@filters.length) { Hash.new }
+   i=0;  
+  @filters.each do |fi| 
+    #labels_id.push(fi.id)
+    #values.push(params[fi.nameOfLabel])
+    pvalues[i][fi.nameOfLabel] = params[fi.nameOfLabel]
+    i = i+1
+  end
+puts pvalues
+  #@itemSpecs = ItemSpec.new(pvalues)
  	/@item = Item.new(item_params)/
   	if @item.save
-        params[:item_attachments]['image'].each do |a|
-          @item_attachment = @item.item_attachments.create!(:image => a)
-        end
-  		redirect_to user_path(:id => params[:user_id])
+          params[:item_attachments]['image'].each do |a|
+                  @item_attachment = @item.item_attachments.create!(:image => a)
+          end
+  		  redirect_to user_path(:id => params[:user_id])
 	else
   		render :action => 'new'
 	end	  	
