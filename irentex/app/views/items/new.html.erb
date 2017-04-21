@@ -3,7 +3,7 @@
 
 <h1>Add New Item</h1>
  <table>
-<%= form_for :item, url: user_items_path do |u| %>
+<%= form_for :item, url: user_items_path  do |u| %>
 	<p>
 		<%= u.hidden_field :category_id, :value => @user.categories_id %>
 		<tr><td> <%=	u.label :"Item Name:"         %> </td><td>  <%=	u.text_field :item_name  %></td></tr>
@@ -17,9 +17,13 @@
 	                                                    <% end %>
 	                                                    <% end %>
 	    </td></tr>
-	    <tr><td> <%=	u.label :"Rental Period:"     %> </td>
-	        <td> <%=	u.text_field :item_maxp, :value =>"max" %> </td><td></tr><tr><td></td>
-	        <td> <%=	u.text_field :item_minp, :value =>"min" %> </td></tr>
+	    <tr>
+	        <td> <%=	u.label :"Rental Period:"     %> </td>
+	        <td> <%=	u.text_field :item_maxp, :value =>"max" %> </td>
+	        </tr>
+	        <tr>
+	        	<td></td>
+	        	<td> <%=	u.text_field :item_minp, :value =>"min" %> </td></tr>
 
 	<tr><td></td></tr>	
 	<tr><td><strong> Product Spesfications: </strong></td></tr>
@@ -29,7 +33,7 @@
 			 		<tr>
 			 			<td><%=i.nameOfLabel%></td>
 			 			<td><input type="text" name ="<%=i.nameOfLabel%>"> </td> 	
-			 		<tr>    
+			 		</tr>    
 	            <% else %>
 	            	<input type="text" name ="F<%=i.nameOfLabel%>" >
 					<input type="text" name ="T<%=i.nameOfLabel%>" >
@@ -38,17 +42,18 @@
 	         <% count = count+ 1
 	    end %>
 <p>
-</table>
-  <%= u.fields_for :item_attachments do |p| %>
-     <div class="field">
-      <%= p.label :image %> 
-      <%= p.file_field :image, :multiple => true, name: "item_attachments[image][]" %>
-     </div>
 
+  <%= u.fields_for :item_attachments do |p| %>
+     <tr>
+      <td> <%= p.label :image %> </td>
+      <td><%= p.file_field :image, :multiple => true, name: "item_attachments[image][]" %>
+    </td></tr>
    <% end %>
 </p>
 
-    <%=u.submit %>
+   <tr><td> <%=u.submit %><td><tr>
 <% end %>
+
+</table>
 
 <%= link_to 'Back', user_path(:id => params[:user_id]) %>

@@ -49,7 +49,8 @@
       <%end %>
     <th colspan="3"></th>
   </tr>
-<% @items.each do |i| %>
+<% j =0
+  @items.each do |i| %>
 <tr>
       <td><%= i.item_name %></td>
       <td><%= i.item_desc %></td>
@@ -64,11 +65,12 @@
         <% end %> 
       </table> </td>
       <td><%= i.item_price %></td>
-      <% @itemspecs_all.each do |i| %>
-          <% i.each do |j| %>
-          <td>  <%= j.value %></td>      
-          <%end%>
-      <%end%>
+      <% if j<@itemspecs_all.length
+          @itemspecs_all[j].each do |k| %>
+                <td>  <%= k.value %></td>      
+          <% end %>
+         <% j= j+1 %> 
+         <% end%>
 
       <td><%= link_to 'Show', user_item_path(:id => i.id     , :user_id => i.user_id) %></td>
       <td><%= link_to 'Edit', edit_user_item_path(:id => i.id, :user_id => i.user_id) %></td>

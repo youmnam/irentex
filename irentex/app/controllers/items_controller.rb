@@ -24,19 +24,20 @@ def create
   @filters =  CategoryFilter.findByCat(@user.categories_id)
   
   puts "I am hereeeeeeeeeeeeeeeeeee"
-   i=0;  
- 	/@item = Item.new(item_params)/
-  	if @item.save
-          params[:item_attachments]['image'].each do |a|
+
+  if @item.save
+        params[:item_attachments]['image'].each do |a|
                   @item_attachment = @item.item_attachments.create!(:image => a)
-          end
-           @filters.each do |fi| 
-              @itemSpecs = ItemSpec.create( :item_id => @item.id, :category_filter_id => fi.id, :value => params[fi.nameOfLabel]  )
-           end
+        end
+        
+        @filters.each do |fi| 
+            @itemSpecs = ItemSpec.create( :item_id => @item.id, :category_filter_id => fi.id, :value => params[fi.nameOfLabel]  )
+        end
   		  redirect_to user_path(:id => params[:user_id])
 	else
   		render :action => 'new'
-	end	  	
+	end
+  	  	
 end
 	 
 def update

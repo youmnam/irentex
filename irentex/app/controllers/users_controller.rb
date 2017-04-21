@@ -21,11 +21,11 @@ class UsersController < ApplicationController
 	  @items.each do |i|
 	  		@itemSpecs = ItemSpec.findbyItem(i.id)
 	  		itemspecs_all.push(@itemSpecs)
-	  		if k =0 
+	  		if k ==0 
 	  			@itemSpecs.each do |is|
 	  				labels.push(CategoryFilter.find(is.category_filter_id).nameOfLabel)
 	  			end
-	  			k = k+1 
+	  			k = 10
 	  		end
 	  end 
 	  @labels = labels
