@@ -25,14 +25,14 @@
 	<tr><td><strong> Product Spesfications: </strong></td></tr>
 	<% count =0 
 	   @filters.each do |i| %>
-			 	<% if i.typeOfLabel == "Text" %>
+			 	<% if i.typeOfLabel == "text" %>
 			 		<tr>
 			 			<td><%=i.nameOfLabel%></td>
 			 			<td><input type="text" name ="<%=i.nameOfLabel%>"> </td> 	
 			 		<tr>    
 	            <% else %>
 	            	<input type="text" name ="F<%=i.nameOfLabel%>" >
-					<input type="text" name ="T<%=i.nameOfLabel%>"" >
+					<input type="text" name ="T<%=i.nameOfLabel%>" >
 	 	     <% end %>
 			 </br>
 	         <% count = count+ 1

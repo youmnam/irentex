@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 
 	def index
@@ -7,7 +8,29 @@ class UsersController < ApplicationController
 	def show
 	  @user = User.find(params[:id])
 	  @items = Item.findwithuser(params[:id])
+	  
 	  @user_category = Category.find(@user.categories_id)
+	  @filters =  CategoryFilter.findByCat(@user.categories_id)
+	  
+	  #labels = Array.new(@filters.length)
+	  #itemspecs_all = Array.new(@items.length)
+	  labels =  []
+	  itemspecs_all = []
+
+	  k=0
+	  @items.each do |i|
+	  		@itemSpecs = ItemSpec.findbyItem(i.id)
+	  		itemspecs_all.push(@itemSpecs)
+	  		if k =0 
+	  			@itemSpecs.each do |is|
+	  				labels.push(CategoryFilter.find(is.category_filter_id).nameOfLabel)
+	  			end
+	  			k = k+1 
+	  		end
+	  end 
+	  @labels = labels
+	  @itemspecs_all = itemspecs_all
+	  puts labels
 	end
 
 

@@ -6,5 +6,4 @@ class CategoryFilter < ActiveRecord::Base
   end
 
   
-  
 end

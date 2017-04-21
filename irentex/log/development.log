@@ -47751,3 +47751,1531 @@ ArgumentError (When assigning attributes, you must pass a hash as an argument.):
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (61.7ms)
+
+
+Started GET "/users/1/items" for 127.0.0.1 at 2017-04-21 09:10:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ItemsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 127ms (ActiveRecord: 1.0ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Item with 'id'=):
+  app/controllers/items_controller.rb:3:in `index'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (105.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (147.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:10:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 4]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 5]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 6]]
+  Rendered users/show.html.erb within layouts/application (360.9ms)
+Completed 200 OK in 1738ms (Views: 1629.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:10:59 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 3]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 4]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 5]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 6]]
+  Rendered users/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 57ms (Views: 53.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:11:01 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 125ms (Views: 78.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:11:24 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 62ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:14:38 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"TltqUfi6tKyV4Hz5tQ42a5ucZX5blVxv41SAo3/kCOTrCi+ydpT1Q4LZv2j9mRB9KKO++CmGFRKGcc1B4oydGQ==", "Color"=>"", "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["item_name", ""], ["item_desc", ""], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:14:38.392175"], ["updated_at", "2017-04-21 07:14:38.392175"]]
+  [1m[35m (176.7ms)[0m  commit transaction
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 178.3ms)
+
+NameError (undefined local variable or method `pvalues' for #<ItemsController:0x007f3d90bd5a90>):
+  app/controllers/items_controller.rb:35:in `block in create'
+  app/controllers/items_controller.rb:32:in `create'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.2ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:14:58 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 106ms (Views: 54.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:15:03 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"UuGFEpopYa5SZU/8INwJ3n8BTEOLaTivXvcB8f3hwVT3sMDxFAcgQUVcjG1oSy/IzD6Xxfl6cdI70kwTYIlUqQ==", "Color"=>"", "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["item_name", ""], ["item_desc", ""], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:15:03.359030"], ["updated_at", "2017-04-21 07:15:03.359030"]]
+  [1m[36m (115.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 117.0ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'Color' for ItemSpec.):
+  app/controllers/items_controller.rb:37:in `block in create'
+  app/controllers/items_controller.rb:32:in `create'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:42 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 3]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 4]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 5]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 6]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 7]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 123ms (Views: 85.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:43 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 4]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 5]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 6]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 7]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 111ms (Views: 105.5ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/users/1/items/1" for 127.0.0.1 at 2017-04-21 09:20:46 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MZ6ttFJ/wZoDl0HOoi/1CFPeSWbWCebS4zAHYWpFtQeUz+hX3FGAdRSugl/quNMe4OGS4KQar6+GFUqD9y0g+g==", "user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 1]]
+  [1m[36m (81.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 88ms (ActiveRecord: 82.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 3]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 4]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 5]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 6]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 7]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 82ms (Views: 78.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/1/items/2" for 127.0.0.1 at 2017-04-21 09:20:48 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XGh/94xSP7yzMM56PcrE6ZjcDzl44RS9REYbuoh6uj75OToUAnx+U6QJDet1XeL/K+PUvwryXcAhY1ZYFRIvww==", "user_id"=>"1", "id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 2]]
+  [1m[35m (87.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 93ms (ActiveRecord: 88.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:48 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 3]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 4]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 5]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 6]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 7]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 61ms (Views: 57.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/1/items/3" for 127.0.0.1 at 2017-04-21 09:20:51 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eTfeMDvaXO82aJZMMiG2VZ3tJ5IlWAJNzGSaEpnscETcZpvTtfQdACFRVd16tpBDLtL8FFdLSzCpQdfwBITluQ==", "user_id"=>"1", "id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 3]]
+  [1m[35m (97.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 104ms (ActiveRecord: 98.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:51 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 4]]
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 5]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 6]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 7]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 59ms (Views: 56.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/1/items/4" for 127.0.0.1 at 2017-04-21 09:20:53 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iVl1bpDLdACaNMYzg7ce1hm8aXYwmCiG0RNPdFP/cEYsCDCNHuU1740NBaLLIDjAqoOy8EKLYfu0NgKWzpfluw==", "user_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 4]]
+  [1m[36m (181.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 186ms (ActiveRecord: 182.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:54 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 5]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 6]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 7]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 62ms (Views: 58.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/1/items/5" for 127.0.0.1 at 2017-04-21 09:20:55 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d8k7DOg87hDFAHg40CjP2FYcyzbz1frrdtlxqlkM+vXSmH7vZhKv/9I5u6mYv+nO5SMQsIHGs5YT/DxIxGRvCA==", "user_id"=>"1", "id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 5]]
+  [1m[36m (167.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 172ms (ActiveRecord: 167.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:55 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 6]]
+  [1m[35mItemAttachment Load (0.4ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 7]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 67ms (Views: 63.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/1/items/6" for 127.0.0.1 at 2017-04-21 09:20:58 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CcVZDUt7jvP3LZlOL4Fnz0QXKcx1qDt0hoA5x+EsHXKslBzuxVXPHOAUWt9nFkHZ9yjySge7cgnjpXQlfESIjw==", "user_id"=>"1", "id"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 6]]
+  [1m[35m (89.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 94ms (ActiveRecord: 90.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:20:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 7]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 72ms (Views: 68.0ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/1/items/7" for 127.0.0.1 at 2017-04-21 09:21:00 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nrTmYykmI1R+RiBHEsQogyhRxcTq0uGqVaHF2lxHiBQ75aOApwhiu2l/49ZaUw6Vm24eQpjBqNcwhIg4wS8d6Q==", "user_id"=>"1", "id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 7]]
+  [1m[35m (174.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 179ms (ActiveRecord: 174.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:21:00 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 8]]
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 59ms (Views: 56.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/1/items/8" for 127.0.0.1 at 2017-04-21 09:21:02 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KKI7AX6taujp2sT3MvgijafYMy5HQTfP2OXy54ozB2WN837i8IMrB/7jB2Z6bwSbFOfoqDVSfrK9wL8FF1uSmA==", "user_id"=>"1", "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 8]]
+  [1m[36m (62.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 70ms (ActiveRecord: 63.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:21:02 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:21:03 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 78ms (Views: 59.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:22:13 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 146ms (Views: 82.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:22:20 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"ite", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"a6chbyr/zHytC11PKV/FPrt5wp+n60WKDvmM0fRqo+nO9mSMpNGNk7oynt5hyOMoCEYZGdX4DPdr3MEzaQI2FA==", "Color"=>"", "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["item_name", "ite"], ["item_desc", ""], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:22:20.052919"], ["updated_at", "2017-04-21 07:22:20.052919"]]
+  [1m[35m (204.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 205.0ms)
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/items_controller.rb:37:in `create'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.4ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:22:39 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"item", "item_desc"=>"item", "item_price"=>"45", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"a6chbyr/zHytC11PKV/FPrt5wp+n60WKDvmM0fRqo+nO9mSMpNGNk7oynt5hyOMoCEYZGdX4DPdr3MEzaQI2FA==", "Color"=>"33", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f3d904b3e60 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-ry5i2u.png>, @original_filename="icon cy.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"icon cy.png\"\r\nContent-Type: image/png\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["item_name", "item"], ["item_desc", "item"], ["item_price", 45.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:22:39.195970"], ["updated_at", "2017-04-21 07:22:39.195970"]]
+  [1m[35m (229.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "icon_cy.png"], ["item_id", 10], ["created_at", "2017-04-21 07:22:40.613586"], ["updated_at", "2017-04-21 07:22:40.613586"]]
+  [1m[36m (110.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+Completed 500 Internal Server Error in 1601ms (ActiveRecord: 342.5ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'category_id' for ItemSpec.):
+  app/controllers/items_controller.rb:45:in `block in create'
+  app/controllers/items_controller.rb:40:in `create'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.8ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:23:15 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"item", "item_desc"=>"item", "item_price"=>"45", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"a6chbyr/zHytC11PKV/FPrt5wp+n60WKDvmM0fRqo+nO9mSMpNGNk7oynt5hyOMoCEYZGdX4DPdr3MEzaQI2FA==", "Color"=>"33", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f3d90dd72f8 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-1uobgxf.png>, @original_filename="icon cy.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"icon cy.png\"\r\nContent-Type: image/png\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["item_name", "item"], ["item_desc", "item"], ["item_price", 45.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:23:15.455895"], ["updated_at", "2017-04-21 07:23:15.455895"]]
+  [1m[35m (81.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "icon_cy.png"], ["item_id", 11], ["created_at", "2017-04-21 07:23:15.686687"], ["updated_at", "2017-04-21 07:23:15.686687"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.5ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 11], ["category_filter_id", 1], ["value", "33"], ["created_at", "2017-04-21 07:23:15.806718"], ["updated_at", "2017-04-21 07:23:15.806718"]]
+  [1m[36m (76.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 477ms (ActiveRecord: 254.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:23:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 9]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 10]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 11]]
+  Rendered users/show.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 68ms (Views: 56.8ms | ActiveRecord: 1.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItemSpecs (20170420133549)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (11.4ms)[0m  DROP TABLE "item_specs"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170420133549"]]
+  [1m[35m (101.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategoryFilters (20170408071735)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "category_filters"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170408071735"]]
+  [1m[35m (78.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCarCats (20170407142212)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "car_cats"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170407142212"]]
+  [1m[35m (105.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategories (20170407141307)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "categories"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170407141307"]]
+  [1m[35m (133.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItemAttachments (20170402153124)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "item_attachments"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170402153124"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItems (20170315143525)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "items"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170315143525"]]
+  [1m[35m (90.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170315142400)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "users"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20170315142400"]]
+  [1m[35m (83.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170315142400)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "usr_vname" varchar, "usr_email" varchar, "usr_tel" varchar, "usr_address" varchar, "usr_gover" varchar, "usr_city" varchar, "usr_logo" varchar, "usr_delivery" integer, "usr_description" varchar, "password_digest" varchar, "categories_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_users_on_categories_id" ON "users" ("categories_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170315142400"]]
+  [1m[36m (75.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItems (20170315143525)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_name" varchar, "item_desc" varchar, "item_price" decimal, "item_per" varchar, "item_maxp" varchar, "item_minp" varchar, "item_status" integer, "item_available" integer, "item_nviews" varchar, "item_nvreqs" varchar, "user_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_items_on_category_id" ON "items" ("category_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170315143525"]]
+  [1m[35m (68.4ms)[0m  commit transaction
+Migrating to CreateItemAttachments (20170402153124)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "item_attachments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170402153124"]]
+  [1m[35m (94.4ms)[0m  commit transaction
+Migrating to CreateCategories (20170407141307)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "CategoryName" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170407141307"]]
+  [1m[35m (61.7ms)[0m  commit transaction
+Migrating to CreateCarCats (20170407142212)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "car_cats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170407142212"]]
+  [1m[35m (83.9ms)[0m  commit transaction
+Migrating to CreateCategoryFilters (20170408071735)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "category_filters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nameOfLabel" varchar, "typeOfLabel" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX "index_category_filters_on_category_id" ON "category_filters" ("category_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170408071735"]]
+  [1m[36m (60.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemSpecs (20170420133549)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "item_specs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer, "category_filter_id" integer, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_item_specs_on_item_id" ON "item_specs" ("item_id")
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_item_specs_on_category_filter_id" ON "item_specs" ("category_filter_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170420133549"]]
+  [1m[35m (58.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_category_filters_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_category_filter_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_category_filter_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_item_specs_on_item_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_categories_id' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-21 09:54:21 +0200
+Processing by HomeController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 993ms (Views: 987.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-21 09:54:22 +0200
+Processing by HomeController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-04-21 09:54:26 +0200
+Processing by UsersController#new as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered users/new.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 93ms (Views: 91.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-21 09:56:16 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/JfIjeMZtqBKjKSTV3cj3qOQWnOpcWGeNJB26oD9Q2BZxo1ubTf3T121ZwIf4AXIEK+B9dtiKONRtTsIHZXWnQ==", "user"=>{"usr_vname"=>"Salma Atelier ", "categories_id"=>"1", "usr_description"=>"wedding dress rental shop", "usr_email"=>"salam@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "usr_tel"=>"034556656", "usr_address"=>"12 St. 6th October", "usr_gover"=>"Cairo", "usr_delivery"=>"1"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("usr_vname", "usr_description", "usr_email", "password_digest", "usr_tel", "usr_address", "usr_gover", "categories_id", "usr_delivery", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["usr_vname", "Salma Atelier "], ["usr_description", "wedding dress rental shop"], ["usr_email", "salam@gmail.com"], ["password_digest", "$2a$10$g3Q/m8MzOTxE/Fx0g0d3uew3EYgF95LMnZqD6WyEjrGoJLyxvzZUu"], ["usr_tel", "034556656"], ["usr_address", "12 St. 6th October"], ["usr_gover", "Cairo"], ["categories_id", 1], ["usr_delivery", 1], ["created_at", "2017-04-21 07:56:16.478105"], ["updated_at", "2017-04-21 07:56:16.478105"]]
+  [1m[36m (61.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 222ms (ActiveRecord: 61.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:56:16 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 105ms (Views: 79.8ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/uploadlogo?id=1" for 127.0.0.1 at 2017-04-21 09:56:22 +0200
+Processing by UsersController#uploadlogo as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R3gFjVD1kuc6Bbgy4ok2dhzHx353EG0AQKhNHq0o44PiKUBu3tvTCC08e6OqHhBgr/gc+AUDJH0ljQD8MEB2fg==", "commit"=>"upload logo", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.2ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/users_controller.rb:67:in `user_params'
+  app/controllers/users_controller.rb:16:in `uploadlogo'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.4ms)
+
+
+Started PATCH "/uploadlogo?id=1" for 127.0.0.1 at 2017-04-21 09:56:53 +0200
+Processing by UsersController#uploadlogo as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R3gFjVD1kuc6Bbgy4ok2dhzHx353EG0AQKhNHq0o44PiKUBu3tvTCC08e6OqHhBgr/gc+AUDJH0ljQD8MEB2fg==", "user"=>{"usr_logo"=>#<ActionDispatch::Http::UploadedFile:0x007f3d90980678 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-ls4ejj.jpg>, @original_filename="LauraReyero_Atelier_01 (1).jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[usr_logo]\"; filename=\"LauraReyero_Atelier_01 (1).jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"upload logo", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "usr_logo" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["usr_logo", "LauraReyero_Atelier_01__1_.jpg"], ["updated_at", "2017-04-21 07:56:54.699699"], ["id", 1]]
+  [1m[35m (122.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1173ms (ActiveRecord: 123.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:56:54 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 60ms (Views: 56.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:57:08 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 154ms (Views: 101.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 09:57:27 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 57ms (Views: 53.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 09:58:56 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"Pink Dress", "item_desc"=>"Pink Dress 1", "item_price"=>"500", "item_per"=>"day", "item_maxp"=>"8", "item_minp"=>"5"}, "utf8"=>"✓", "authenticity_token"=>"Srl04iNTGcZMyYCgYtSHC9LVbjVI8RmRtYdFC+e94+Lv6DEBrX1YKVvwQzEqQ6EdYeq1szriUOzQogjpetV2Hw==", "Color"=>"Pink", "Size"=>"S, M, L, XL", "Occasion"=>"party", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f3d85cf9e90 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-qeb7r1.jpg>, @original_filename="PNK4.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"PNK4.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x007f3d85cf9e68 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-1dse3o.jpg>, @original_filename="PNK4 (1).jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"PNK4 (1).jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("item_name", "item_desc", "item_price", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["item_name", "Pink Dress"], ["item_desc", "Pink Dress 1"], ["item_price", 500.0], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 07:58:56.900187"], ["updated_at", "2017-04-21 07:58:56.900187"]]
+  [1m[36m (188.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["image", "PNK4.jpg"], ["item_id", 1], ["created_at", "2017-04-21 07:58:57.331978"], ["updated_at", "2017-04-21 07:58:57.331978"]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "PNK4__1_.jpg"], ["item_id", 1], ["created_at", "2017-04-21 07:58:57.683375"], ["updated_at", "2017-04-21 07:58:57.683375"]]
+  [1m[36m (69.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 1], ["category_filter_id", 1], ["value", "Pink"], ["created_at", "2017-04-21 07:58:57.786360"], ["updated_at", "2017-04-21 07:58:57.786360"]]
+  [1m[36m (61.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 1], ["category_filter_id", 2], ["value", "S, M, L, XL"], ["created_at", "2017-04-21 07:58:57.851681"], ["updated_at", "2017-04-21 07:58:57.851681"]]
+  [1m[35m (106.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 1], ["category_filter_id", 3], ["value", "party"], ["created_at", "2017-04-21 07:58:57.963793"], ["updated_at", "2017-04-21 07:58:57.963793"]]
+  [1m[36m (73.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1145ms (ActiveRecord: 601.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 09:58:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 65ms (Views: 61.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:05:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 2.4ms)
+
+NameError (undefined local variable or method `itemSpecs' for #<UsersController:0x007f3d8581ecb8>):
+  app/controllers/users_controller.rb:13:in `block in show'
+  app/controllers/users_controller.rb:12:in `show'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:05:57 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 2.5ms)
+
+NameError (uninitialized constant UsersController::ItemSpecs):
+  app/controllers/users_controller.rb:13:in `block in show'
+  app/controllers/users_controller.rb:12:in `show'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:06:15 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mItemAttachment Load (0.3ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 184ms (Views: 120.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:16:09 +0200
+
+SyntaxError (/home/youmna/Desktop/irentex/code_rails/irentex/irentex/app/controllers/users_controller.rb:86: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/users_controller.rb:86: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:16:32 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 156ms (Views: 87.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:20:01 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 73ms (Views: 64.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:23:20 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (29.4ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (undefined local variable or method `itemspecs_all' for #<#<Class:0x00000004bc5df0>:0x007f3d91054df0>):
+    64:         <% end %> 
+    65:       </table> </td>
+    66:       <td><%= i.item_price %></td>
+    67:       <% itemspecs_all.each do |i| %>
+    68:           <% i.each do |j| %>
+    69:           <td>  <%= j.value %></td>      
+    70:           <%end%>
+  app/views/users/show.html.erb:67:in `block in _app_views_users_show_html_erb___2916790354281111305_69951201377300'
+  app/views/users/show.html.erb:52:in `_app_views_users_show_html_erb___2916790354281111305_69951201377300'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:24:32 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    44:     <th style="width:50%" >Item Images</th>
+    45:     <th>Item Price</th>
+    46:     <% count =0 
+    47:      @labels.each do |i| %>
+    48:             <th><%=i%></th>
+    49:       <%end %>
+    50:     <th colspan="3"></th>
+  app/views/users/show.html.erb:47:in `_app_views_users_show_html_erb___2916790354281111305_69951194110040'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:29:44 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 2.8ms)
+
+NoMethodError (undefined method `push' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `block in show'
+  app/controllers/users_controller.rb:21:in `show'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:30:03 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 3.4ms)
+
+NoMethodError (undefined method `push' for nil:NilClass):
+  app/controllers/users_controller.rb:26:in `block (2 levels) in show'
+  app/controllers/users_controller.rb:25:in `block in show'
+  app/controllers/users_controller.rb:21:in `show'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (44.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:30:11 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered users/show.html.erb within layouts/application (43.2ms)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 4.9ms)
+
+ActionView::Template::Error (undefined local variable or method `itemspecs_all' for #<#<Class:0x007f3d90bf4120>:0x007f3d90be1ef8>):
+    64:         <% end %> 
+    65:       </table> </td>
+    66:       <td><%= i.item_price %></td>
+    67:       <% itemspecs_all.each do |i| %>
+    68:           <% i.each do |j| %>
+    69:           <td>  <%= j.value %></td>      
+    70:           <%end%>
+  app/views/users/show.html.erb:67:in `block in _app_views_users_show_html_erb___2916790354281111305_69951194110040'
+  app/views/users/show.html.erb:52:in `_app_views_users_show_html_erb___2916790354281111305_69951194110040'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:30:45 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 60ms (Views: 52.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1/items/1" for 127.0.0.1 at 2017-04-21 10:31:02 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered items/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 80ms (Views: 76.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:31:25 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 89ms (Views: 76.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:32:57 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.3ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  Rendered users/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:33:02 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 67ms (Views: 63.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:35:36 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 149ms (Views: 91.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 10:35:43 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"EJSQSXH3LHXrAwmqUYm3Hgzijn6nMnrptMPFvn1Chvm1xdWq/9ltmvw6yjsZHpEIv91V+NUhM5TR5ohc4CoTBA==", "Color"=>"", "Size"=>"", "Occasion"=>"", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x007f3d90ce8360 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-2819-9cj59q.jpg>, @original_filename="ELT22 (1).jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"ELT22 (1).jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["item_name", ""], ["item_desc", ""], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 08:35:43.414430"], ["updated_at", "2017-04-21 08:35:43.414430"]]
+  [1m[35m (84.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "ELT22__1_.jpg"], ["item_id", 2], ["created_at", "2017-04-21 08:35:43.722727"], ["updated_at", "2017-04-21 08:35:43.722727"]]
+  [1m[36m (88.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 2], ["category_filter_id", 1], ["value", ""], ["created_at", "2017-04-21 08:35:43.892371"], ["updated_at", "2017-04-21 08:35:43.892371"]]
+  [1m[36m (72.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 2], ["category_filter_id", 2], ["value", ""], ["created_at", "2017-04-21 08:35:43.968937"], ["updated_at", "2017-04-21 08:35:43.968937"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 2], ["category_filter_id", 3], ["value", ""], ["created_at", "2017-04-21 08:35:44.058672"], ["updated_at", "2017-04-21 08:35:44.058672"]]
+  [1m[36m (83.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 736ms (ActiveRecord: 417.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:35:44 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%2%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.3ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 82ms (Views: 64.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:36:04 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 62ms (Views: 54.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:37:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')[0m
+  [1m[35mItemSpec Load (0.2ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemSpec Load (0.4ms)[0m  SELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%2%')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 1]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 70ms (Views: 60.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:37:11 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.3ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 170ms (Views: 164.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:37:32 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.6ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 72ms (Views: 64.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:37:54 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.4ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.2ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemSpec Load (0.4ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%2%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 79ms (Views: 58.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:39:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.2ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%2%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.2ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  Rendered users/show.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 1495ms (Views: 1338.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:39:14 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (98.0ms)
+Completed 200 OK in 178ms (Views: 147.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:40:17 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategoryFilter Load (0.3ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  Rendered items/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/1/items" for 127.0.0.1 at 2017-04-21 10:40:26 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"item"=>{"category_id"=>"1", "item_name"=>"", "item_desc"=>"", "item_price"=>"", "item_per"=>"day", "item_maxp"=>"max", "item_minp"=>"min"}, "utf8"=>"✓", "authenticity_token"=>"+c4xLUNlnxC5hytfDk6Lmhz7OX9ni9xOfmttFe4p7Bhcn3TOzUve/66+6M5G2a2Mr8Ti+RWYlTMbTiD3c0F55Q==", "Color"=>"", "Size"=>"", "Occasion"=>"", "item_attachments"=>{"image"=>[#<ActionDispatch::Http::UploadedFile:0x000000032aad48 @tempfile=#<Tempfile:/tmp/RackMultipart20170421-5905-v4u7i1.jpg>, @original_filename="TT165 (2).jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item_attachments[image][]\"; filename=\"TT165 (2).jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Save Item", "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: item_per, item_maxp, item_minp
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("item_name", "item_desc", "category_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["item_name", ""], ["item_desc", ""], ["category_id", 1], ["user_id", 1], ["created_at", "2017-04-21 08:40:26.369809"], ["updated_at", "2017-04-21 08:40:26.369809"]]
+  [1m[35m (84.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_attachments" ("image", "item_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["image", "TT165__2_.jpg"], ["item_id", 3], ["created_at", "2017-04-21 08:40:26.701268"], ["updated_at", "2017-04-21 08:40:26.701268"]]
+  [1m[36m (78.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mCategoryFilter Load (0.4ms)[0m  SELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 3], ["category_filter_id", 1], ["value", ""], ["created_at", "2017-04-21 08:40:26.806471"], ["updated_at", "2017-04-21 08:40:26.806471"]]
+  [1m[36m (70.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["item_id", 3], ["category_filter_id", 2], ["value", ""], ["created_at", "2017-04-21 08:40:26.881405"], ["updated_at", "2017-04-21 08:40:26.881405"]]
+  [1m[35m (94.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "item_specs" ("item_id", "category_filter_id", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["item_id", 3], ["category_filter_id", 3], ["value", ""], ["created_at", "2017-04-21 08:40:26.981721"], ["updated_at", "2017-04-21 08:40:26.981721"]]
+  [1m[36m (72.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 693ms (ActiveRecord: 403.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-04-21 10:40:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (user_id LIKE '%1%')
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%1%')[0m
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.1ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategoryFilter Load (0.1ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemSpec Load (0.2ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%2%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemSpec Load (0.3ms)[0m  [1mSELECT "item_specs".* FROM "item_specs" WHERE (item_id LIKE '%3%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "category_filters".* FROM "category_filters" WHERE "category_filters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mItemAttachment Load (0.2ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 1]]
+  [1m[35mItemAttachment Load (0.1ms)[0m  SELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?  [["item_id", 2]]
+  [1m[36mItemAttachment Load (0.1ms)[0m  [1mSELECT "item_attachments".* FROM "item_attachments" WHERE "item_attachments"."item_id" = ?[0m  [["item_id", 3]]
+  Rendered users/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 70ms (Views: 58.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1/items/new" for 127.0.0.1 at 2017-04-21 10:40:36 +0200
+Processing by ItemsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategoryFilter Load (0.4ms)[0m  [1mSELECT "category_filters".* FROM "category_filters" WHERE (category_id LIKE '%1%')[0m
+  Rendered items/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 65ms (Views: 58.8ms | ActiveRecord: 0.6ms)
