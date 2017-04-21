@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :renters
   resources :item_attachments
   get 'sessions/new'
 
@@ -13,12 +14,14 @@ Rails.application.routes.draw do
   end
 
   patch   '/uploadlogo',   to: 'users#uploadlogo'
-  get   '/markavailable',   to: 'items#markavailable'
-  get	 '/showcat',   to: 'category_items#show'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  post   '/searchItems',   to: 'category_items#searchCat'
-  delete '/logout',  to: 'sessions#destroy'
+  get     '/markavailable',   to: 'items#markavailable'
+  get	    '/showcat',   to: 'category_items#show'
+  get     '/login',   to: 'sessions#new'
+  post    '/login',   to: 'sessions#create'
+  get     '/loginrenter',   to: 'sessions#new'
+  post    '/loginrenter',   to: 'sessions#create'
+  post    '/searchItems',   to: 'category_items#searchCat'
+  delete  '/logout',  to: 'sessions#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -23,7 +23,7 @@ def show
 	if params[:iid] == '1'
 	
 	$searchCatId = params[:iid]
-    @items = CarCat.order(:id)   
+    @items = Item.findbyCat(params[:iid])   
     @filters = 	CategoryFilter.findByCat(params[:iid])
 	$itemsS = @items 
 	$filtersS = @filters  

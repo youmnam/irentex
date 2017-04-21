@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Renters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Renter name</th>
+      <th>Renter email</th>
+      <th>Renter password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @renters.each do |renter| %>
+      <tr>
+        <td><%= renter.renter_name %></td>
+        <td><%= renter.renter_email %></td>
+        <td><%= renter.renter_password %></td>
+        <td><%= link_to 'Show', renter %></td>
+        <td><%= link_to 'Edit', edit_renter_path(renter) %></td>
+        <td><%= link_to 'Destroy', renter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Renter', new_renter_path %>

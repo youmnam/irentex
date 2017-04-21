@@ -12,4 +12,9 @@ end
 def self.findwithuser(userid)
   where("user_id = ?", "#{userid}") 
 end
+
+def self.findbyCat(catid)
+  where("category_id = ?", "#{catid}") 
+end
+
 end
