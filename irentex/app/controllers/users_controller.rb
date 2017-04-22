@@ -10,14 +10,21 @@ class UsersController < ApplicationController
 	  @items = Item.findwithuser(params[:id])
 	  
 	  @user_category = Category.find(@user.categories_id)
-	  @filters =  CategoryFilter.findByCat(@user.categories_id)
+	  @filters 		 = CategoryFilter.findByCat(@user.categories_id)
 	  
-	  labels =  []
-	  itemspecs_all = []
+
+	  labels 		 = []
+	  itemspecs_all  = []
+	  reservations    = []
+
 
 	  flag = 0
 	  @items.each do |i|
-	  		@itemSpecs = ItemSpec.findbyItem(i.id)
+	  		
+	  		@reservation = Reservation.findbyItem(i.id)
+			reservations.push(@reservation)
+			
+	  		@itemSpecs   = ItemSpec.findbyItem(i.id)
 	  		itemspecs_all.push(@itemSpecs)
 	  		if flag == 0 
 	  			@itemSpecs.each do |is|
@@ -25,9 +32,12 @@ class UsersController < ApplicationController
 	  			end
 	  		end
 	  		flag = 1
+
 	  end 
+	  
 	  @labels = labels
 	  @itemspecs_all = itemspecs_all
+	  @reservations	 = reservations
 	end
 
 

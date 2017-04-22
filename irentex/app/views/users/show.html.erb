@@ -31,14 +31,36 @@
                                                 <%= :"home & shop" %>
                                             <% end %>
                                        <% end %> <br>
-
 	<b>Your Address is:          </b> <%= @user.usr_address  %> , <%=h @user.usr_gover  %> <br>
 	<b>Your Category is:         </b> <%= @user_category.CategoryName%>
 </p>
 
+
+
+<h3>Reservations:</h3>
+<table border="1">
+  <tr>
+    <th>Product no: </th>
+    <th>Requester Name :</th>
+    <th>Requester Email:</th>
+    <th>Request Date <br>From --> date </th>
+  </tr>
+  <% @reservations.each do |rr| %>
+    <% rr.each do |r| %>
+            <tr>
+              <td> <%= r.item_id %></td>
+              <td> <%= r.name %></td>
+              <td> <%= r.email %></td>
+              <td> <%= r.from %> --> <%= r.to %> </td>
+            </tr>
+        <% end %> 
+        <% end %> 
+</table>
+
 <h3>Items:</h3>
 <table border="1">
   <tr>
+    <th>Item ID</th>
     <th>Item Name</th>
     <th>Item Description</th>
     <th style="width:50%" >Item Images</th>
@@ -51,6 +73,7 @@
 <% j =0
   @items.each do |i| %>
 <tr>
+      <td><%= i.id %></td>
       <td><%= i.item_name %></td>
       <td><%= i.item_desc %></td>
       <td>
