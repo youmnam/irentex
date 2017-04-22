@@ -56,11 +56,11 @@
 <h3> Request Form </h3>
 <%= form_for :reservation , url: reservations_path(:id => @item.id) do |u| %>
     <%= u.hidden_field :item_id, :value => @item.id %>
+    <%= u.hidden_field :status, :value => "0" %>
     Name:  <%= text_field(:reservation, :name)  %> <br>
     Email: <%= text_field(:reservation, :email) %> <br>
     Form:  <%= date_field(:reservation, :from)  %> <br>
     To  :  <%= date_field(:reservation, :to)    %> <br>
-
     <br>
 <%=u.submit "Reserve Now!", class: "btn btn-primary"  %>
 <%end%>

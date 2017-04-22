@@ -1,5 +1,13 @@
 class ReservationsController < ApplicationController
 
+
+	def changeStatus
+		@res = Reservation.find(params[:id])
+        @res.update(:status => params[:status])
+        redirect_to user_path(:id => params[:user_id])
+	end
+	
+
 	def create		
 	 	@Reservation = Reservation.new(reserv_params)	  	
 	  	if @Reservation.save
@@ -12,7 +20,7 @@ class ReservationsController < ApplicationController
 
 private
 	  def reserv_params
-	    params.require(:reservation).permit(:name,:email,:from,:to, :item_id)
+	    params.require(:reservation).permit(:name,:email,:from,:to, :item_id,:status)
 	  end
 
 end

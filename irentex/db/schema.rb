@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170422080014) do
     t.date     "to"
     t.string   "name"
     t.string   "email"
+    t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

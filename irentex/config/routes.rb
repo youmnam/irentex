@@ -12,13 +12,16 @@ Rails.application.routes.draw do
   resources :users do
       resources :items 
   end
+  
 resources :reservations
 
-
   patch   '/uploadlogo',      to: 'users#uploadlogo'
+
   get     '/markavailable',   to: 'items#markavailable'
   get	    '/showcat',         to: 'category_items#show'
   get     '/viewitem',        to: 'items#index'
+  get     '/changeStatus',    to: 'reservations#changeStatus'
+
   get     '/login',           to: 'sessions#new'
   post    '/login',           to: 'sessions#create'
   get     '/loginrenter',     to: 'sessions#loginrenter'

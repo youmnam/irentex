@@ -6,16 +6,13 @@
 </p>
 <br>
 <br>
-
 <p id="notice"><%= notice %></p>
  <strong>logo:</strong> <%= image_tag @user.usr_logo.thumb %>
 <br>
-
 <%= form_for @user, url: uploadlogo_path(:id => @user.id)   do |f| %>
     <p><%= f.file_field :usr_logo  %> <br>
-    <%=f.submit "upload logo", class: "btn btn-primary"  %></p>
+       <%=f.submit "upload logo", class: "btn btn-primary"  %></p>
 <% end %>
-
 <br>
 <br>
 <p>
@@ -34,9 +31,6 @@
 	<b>Your Address is:          </b> <%= @user.usr_address  %> , <%=h @user.usr_gover  %> <br>
 	<b>Your Category is:         </b> <%= @user_category.CategoryName%>
 </p>
-
-
-
 <h3>Reservations:</h3>
 <table border="1">
   <tr>
@@ -44,6 +38,7 @@
     <th>Requester Name :</th>
     <th>Requester Email:</th>
     <th>Request Date <br>From --> date </th>
+    <th>:</th>
   </tr>
   <% @reservations.each do |rr| %>
     <% rr.each do |r| %>
@@ -52,6 +47,18 @@
               <td> <%= r.name %></td>
               <td> <%= r.email %></td>
               <td> <%= r.from %> --> <%= r.to %> </td>
+              <td> <% if r.status == 0 %>
+              <%=  :"new request" %>
+                <td> <%= link_to "accept", changeStatus_path(:id => r.id ,:user_id => @user.id, :status =>'1') %></td>
+                 <td> <%= link_to "reject", changeStatus_path(:id => r.id ,:user_id => @user.id, :status =>'2') %></td>
+                   <% else 
+                      if r.status == 1 %>
+                        <%=  :"accepted" %>
+                    <%else %>
+                        <%=  :"rejected" %>
+                   <%end%>
+                   <%end%>
+              </td> 
             </tr>
         <% end %> 
         <% end %> 
