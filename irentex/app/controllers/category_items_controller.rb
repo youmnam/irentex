@@ -20,7 +20,6 @@ def show
 	  
 	  else 
 	
-	if params[:iid] == '1'
 	
 	$searchCatId = params[:iid]
     @items = Item.findbyCat(params[:iid])   
@@ -28,7 +27,6 @@ def show
 	$itemsS = @items 
 	$filtersS = @filters  
 	
-	end
 	
 	
 	end
@@ -37,11 +35,6 @@ end
 def searchCat
     
 	# @article = Article.find(params[:id])
-    
-	
-	
-    if $searchCatId == '1'
-	
 	#@arr = CarCat.order(:id)
 	#$count = countOfArray(CarCat.order(:id))
 	     
@@ -51,7 +44,7 @@ def searchCat
 		$searchRes = 2
         redirect_to showcat_path(:iid =>$searchCatId)
 
-    end     
+        
 end 
 
 

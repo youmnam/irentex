@@ -125,6 +125,7 @@
 						
                             <h3><%=  i.item_name  %></h3>  
 	                        <p><%= i.item_price %></p>
+                            <%= link_to "view details", viewitem_path(:id => i.id) %>
 	                        
 	                    </div>
 	                </div>

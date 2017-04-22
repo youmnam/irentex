@@ -2,6 +2,14 @@ class ItemsController < ApplicationController
 	def index
 	  @item = Item.find(params[:id])
     @item_attachment = @item.item_attachments.all
+    
+    labels = []
+    @itemSpecs = ItemSpec.findbyItem(params[:id])
+    @itemSpecs.each do |is|
+         labels.push(CategoryFilter.find(is.category_filter_id).nameOfLabel)
+    end
+    @labels = labels
+    @user = User.find(@item.user_id) 
 end
 
 def show

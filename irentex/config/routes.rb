@@ -12,16 +12,19 @@ Rails.application.routes.draw do
   resources :users do
       resources :items 
   end
+resources :reservations
 
-  patch   '/uploadlogo',   to: 'users#uploadlogo'
+
+  patch   '/uploadlogo',      to: 'users#uploadlogo'
   get     '/markavailable',   to: 'items#markavailable'
-  get	    '/showcat',   to: 'category_items#show'
-  get     '/login',   to: 'sessions#new'
-  post    '/login',   to: 'sessions#create'
-  get     '/loginrenter',   to: 'sessions#new'
-  post    '/loginrenter',   to: 'sessions#create'
-  post    '/searchItems',   to: 'category_items#searchCat'
-  delete  '/logout',  to: 'sessions#destroy'
+  get	    '/showcat',         to: 'category_items#show'
+  get     '/viewitem',        to: 'items#index'
+  get     '/login',           to: 'sessions#new'
+  post    '/login',           to: 'sessions#create'
+  get     '/loginrenter',     to: 'sessions#loginrenter'
+  post    '/loginrenter',     to: 'sessions#createrenter'
+  post    '/searchItems',     to: 'category_items#searchCat'
+  delete  '/logout',          to: 'sessions#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

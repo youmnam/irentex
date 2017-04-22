@@ -1,5 +1,19 @@
 class SessionsController < ApplicationController
-   def new
+  
+def loginrenter
+end
+
+ def createrenter
+    renter = Renter.find_by(renter_email: params[:session][:email].downcase)
+    if renter && renter.authenticate(params[:session][:password])
+      redirect_to renter_path(renter)
+    else
+      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      render 'loginrenter'
+    end
+  end
+
+  def new
   end
 
   def create
