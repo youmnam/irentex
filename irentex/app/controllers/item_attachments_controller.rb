@@ -1,6 +1,6 @@
 class ItemAttachmentsController < ApplicationController
   before_action :set_item_attachment, only: [:show, :edit, :update, :destroy]
-
+before_action :require_user, only: [:index, :show, :create, :new, :edit, :update, :destroy]
   # GET /item_attachments
   # GET /item_attachments.json
   def index

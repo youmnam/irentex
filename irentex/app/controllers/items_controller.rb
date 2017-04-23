@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :require_user, only: [:show, :new, :markavailable, :create, :edit, :update, :destroy]
 	def index
 	  @item = Item.find(params[:id])
     @item_attachment = @item.item_attachments.all

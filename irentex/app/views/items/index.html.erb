@@ -36,8 +36,8 @@
 
 <h3> Vendor Info: </h3>
 <p id="notice"><%= notice %></p>
-<strong>Vendor Name:</strong> <%= @user.usr_vname %> <br>
- <strong>logo:</strong> <%= image_tag @user.usr_logo.thumb %> <br>
+  <strong>Vendor Name:</strong> <%= @user.usr_vname %> <br>
+  <strong>logo:</strong> <%= image_tag @user.usr_logo.thumb %> <br>
   <b>Description:              </b> <%= @user.usr_description  %> <br>
   <b>Delivery option:                 </b> <% if @user.usr_delivery == 0 %> 
                                          <%= :"home" %>
@@ -59,8 +59,8 @@
     <%= u.hidden_field :status, :value => "0" %>
     Name:  <%= text_field(:reservation, :name)  %> <br>
     Email: <%= text_field(:reservation, :email) %> <br>
-    Form:  <%= date_field(:reservation, :from)  %> <br>
-    To  :  <%= date_field(:reservation, :to)    %> <br>
+    Form:  <%= text_field(:reservation, :from , id: "from" )  %> <br>
+    To  :  <%= text_field(:reservation, :to, id: "to")    %> <br>
     <br>
 <%=u.submit "Reserve Now!", class: "btn btn-primary"  %>
 <%end%>

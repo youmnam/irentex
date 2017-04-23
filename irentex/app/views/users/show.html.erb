@@ -124,6 +124,6 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %> <br>
 
---> <%= link_to 'log out', home_index_path %> 
+--> <%= link_to 'log out', logout_path(:user_id => @user.id) , method: :delete  %> 
 </div>
 </div>

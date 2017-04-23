@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-
+	before_action :require_user, only: [:index, :show, :upload, :edit, :uploadlogo, :update, :destroy]
 	def index
 	  @user = User.find(params[:id])
 	end

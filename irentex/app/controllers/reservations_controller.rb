@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-
+	before_action :require_user, only: [:changeStatus]
 
 	def changeStatus
 		@res = Reservation.find(params[:id])
