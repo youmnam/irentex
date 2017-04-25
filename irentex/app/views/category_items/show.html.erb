@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">iRentex</a>
+                <%= link_to "iRentex", root_path, class: "navbar-brand"%>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,42 +43,35 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-          <h2 class="head1" >Want to Rent? </h2><p class="p1">Discover what you can rent via irentex.</p>        
- 		  <p class="p2">New user? <%= link_to "Sign up now!", new_user_path %> has account? <%= link_to "Sign in", login_path %></p>
-           
-        </header>
-
-        <hr>
 
         <!-- FilterItems -->
-		
-		
-		
-		
-		<%= form_for :searchItems, url: searchItems_path(:iid) do |f| %>
+        
+        
+        
+        
+        <%= form_for :searchItems, url: searchItems_path(:iid) do |f| %>
   
-			<% count =0 
+            <% count =0 
                @filters.each do |i| %>
-		    
-			
-			
+            
+                   
+          <%= f.label  i.nameOfLabel  
+         var = i.nameOfLabel %><br>
          
-         
-		  <%= f.label  i.nameOfLabel  
-		 var = i.nameOfLabel %><br>
-		 
-		 <% if i.typeOfLabel == "text" %>       
+         <% if i.typeOfLabel == "text" %>       
                    <input type="text" name ="<%=i.nameOfLabel%>" >       
-	                     <% else %>
-                        <input type="text" name ="F<%=i.nameOfLabel%>" >
-						<input type="text" name ="T<%=i.nameOfLabel%>"" >
- 	                     <% end %>
-		 
-		  
-		   
-		   </br>
+                         <% else %>
+                        
+                 <%@ColourArr.each do |c| -%>       
+                <input name ="<%=i.nameOfLabel%>_<%=c%>" type="checkbox" value="<%=c%>" /> <%=c%> <br>              
+
+                    <% end %>
+                        
+                         <% end %>
+         
+          
+           
+           </br>
              <% count = count+ 1
                   end %>
            
@@ -86,51 +79,55 @@
     <%= f.submit :Search%>
   </p>
 <% end %>
-		
-		
-
-		
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
      <!--   <div class="row">
             <div class="col-lg-12">
                  <%= form_tag(home_index_path, :method => "get", id: "search-form") do %>
-				 <%= text_field_tag :search, params[:search], placeholder: "Search items" %>
-			     <%= submit_tag "Search" %>
+                 <%= text_field_tag :search, params[:search], placeholder: "Search items" %>
+                 <%= submit_tag "Search" %>
                 <h3>All Items</h3>
                  
-			<% end %>
+            <% end %>
             </div>
         </div>  -->
         <!-- /.row -->
 
         <!-- Page Features -->
         <div class="row text-center">
-			<% count =0 
+            <% count =0 
                @items.each do |i| %>
-			
-	            <div class="col-md-3 col-sm-6 hero-feature">
-	                <div class="thumbnail">
-	                    
-	                    <div class="caption">
-						
-						
-					
-						
+            
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        
+                        <div class="caption">
+                        
                             <h3><%=  i.item_name  %></h3>  
-	                        <p><%= i.item_price %></p>
-                            <%= link_to "view details", viewitem_path(:id => i.id) %>
-	                        
-	                    </div>
-	                </div>
-	            </div>
-	           <% count = count+ 1
+                            <p><%= i.item_price %></p>
+                             <%= link_to "view details", viewitem_path(:id => i.id) %>
+                        </div>
+                    </div>
+                </div>
+               <% count = count+ 1
                   end %>
             
         </div>
         <!-- /.row -->
 
-		
-		
-		
+        
+        
+        
         <hr>
 
         <!-- Footer -->
