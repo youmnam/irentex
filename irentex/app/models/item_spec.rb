@@ -14,10 +14,11 @@ class ItemSpec < ActiveRecord::Base
   
   
 
-  def self.findAll( filterArr , searchValues , arrayOfColor )
+  def self.findAll( filterArr , searchValues , arrayOfChexBoxes )
     
 	$query = " (1 = 1) "
     
+	$SelectedOrNot = "F" 
 	
 	$checked = 0
 	countselected  =0
@@ -34,21 +35,27 @@ class ItemSpec < ActiveRecord::Base
 	
     elsif x.typeOfLabel == "checkBox"
     
-			countselected = countselected +1 
-			
-			$Colors = "(" 
-			arrayOfColor.each do |c|
 			
 			
-			if searchValues["Color_"+c] != nil
-				$Colors += "'#{c}' ,"  
+			$ValuesIn = "("
+
+         # puts arrayOfChexBoxes["Color"]
+			
+			arrayOfChexBoxes[x.nameOfLabel].each do |c|
+			
+			
+			if searchValues[x.nameOfLabel+"_"+c] != nil
+				$ValuesIn += "'#{c}' ,"  
 			end 	 
 		end
-			n = $Colors.size
-			$Colors = $Colors[0..n-2]
-			$Colors += ")"  
+			n = $ValuesIn.size
+			$ValuesIn = $ValuesIn[0..n-2]
+			$ValuesIn += ")"  
 			
-			#if $Colors.size != 2
+			
+		 
+			
+			if $ValuesIn.size != 2
 				
 				if $checked == 0
 				$checked = 1
@@ -56,8 +63,10 @@ class ItemSpec < ActiveRecord::Base
 				else 
 				$query += " OR ( ( category_filter_id = " + "#{x.id} )"
 				end
-				 $query  += " AND  ( value "  + " in " + $Colors + ") )"		
-			#end 
+				 $query  += " AND  ( value "  + " in " + $ValuesIn + ") )"		
+    $SelectedOrNot = "T"	
+	countselected = countselected +1 
+			end 
 	
 	else 
 		if searchValues[x.nameOfLabel] != ""
@@ -67,6 +76,7 @@ class ItemSpec < ActiveRecord::Base
 			else
 			$query += " OR ( (category_filter_id = " + "#{x.id} )"
 			end 
+			$SelectedOrNot = "T"	
 			countselected = countselected +1		
 			$query  += " AND ( value "  + " LIKE " + "'%#{searchValues[x.nameOfLabel]}%'  ))"
 			
@@ -76,9 +86,15 @@ class ItemSpec < ActiveRecord::Base
 	
 	
  end 
-  puts $query
+  
 
-  	ItemSpec.select('item_id, count( value)').where($query).group("item_id").having( "count( value) = ?",countselected) 
+  	if $SelectedOrNot == "T"	
+	item = ItemSpec.select('item_id, count(value)').where($query).group("item_id").having( "count(value) = ?",countselected) 
+    else 
+	item = "NotSelected"
+    end 
+
+return item 	  
   end
   
 end
