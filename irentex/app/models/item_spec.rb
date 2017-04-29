@@ -34,7 +34,7 @@ class ItemSpec < ActiveRecord::Base
 	
     elsif x.typeOfLabel == "checkBox"
     
-			countselected = countselected +1 
+	
 			
 			$Colors = "(" 
 			arrayOfColor.each do |c|
@@ -48,7 +48,8 @@ class ItemSpec < ActiveRecord::Base
 			$Colors = $Colors[0..n-2]
 			$Colors += ")"  
 			
-			#if $Colors.size != 2
+			puts  $Colors.size 
+			if $Colors.size != 2
 				
 				if $checked == 0
 				$checked = 1
@@ -57,7 +58,8 @@ class ItemSpec < ActiveRecord::Base
 				$query += " OR ( ( category_filter_id = " + "#{x.id} )"
 				end
 				 $query  += " AND  ( value "  + " in " + $Colors + ") )"		
-			#end 
+				 		countselected = countselected +1 
+			end 
 	
 	else 
 		if searchValues[x.nameOfLabel] != ""

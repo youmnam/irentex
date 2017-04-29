@@ -12,36 +12,30 @@ end
 def show
 
 
-     if $searchRes == 2 
-      
-    @items = $itemsS 
-	@filters = $filtersS   
-	@ColourArr = $ColourArray	
-	$searchRes = 0
+     if $searchRes == 2   
+	    @items = $itemsS 
+		@filters = $filtersS   
+		@ColourArr = $ColourArray	
+		$searchRes = 0
 	 
-	  
-	  else 
-	
-	
-	
-	$searchCatId = params[:iid]
-    
-	
-	@items = Item.findwithcategory(params[:iid])   
-    @filters = 	CategoryFilter.findByCat(params[:iid])
-	$itemsS = @items 
-	$filtersS = @filters  
-    @ColourArr = $ColourArray	
-	
-	
-	
+	 else 
+		$searchCatId = params[:iid]
+		@items = Item.findwithcategory(params[:iid])   
+	    @filters = 	CategoryFilter.findByCat(params[:iid])
+		$itemsS = @items 
+		$filtersS = @filters  
+	    @ColourArr = $ColourArray	
 	end
+    
+    @it = [:items => @items, :filters => @filters]
+	
+	respond_to do |format|
+	 	format.html { render :show }
+     	format.json { render @it, status: :created}
+ 	end
 end
 
 def searchCat
-    
-   
-	
 	#$ColourArray.each do |c|
 		#puts params["Color_"+c]
 	#end
@@ -128,7 +122,9 @@ def searchCat
 	    #end	
 	    $itemsS = Item.where("id IN (?) and category_id = (?)", arrOfItems,$searchCatId)		
 	$searchRes = 2
-        redirect_to showcat_path(:iid =>$searchCatId)
+	
+
+    redirect_to showcat_path(:iid =>$searchCatId)
          
 end 
 
